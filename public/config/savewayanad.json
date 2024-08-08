@@ -1,0 +1,28 @@
+[
+    {
+        "iframesavewayanad": "https://www.zeffy.com/donation-form/ccddbaa0-695c-4313-881b-080b06b36a60",
+        "videos": [
+            "https://www.youtube.com/embed/7eLC_IY36dE",
+            "https://www.youtube.com/embed/nyrrtLTzpSU"
+        ],
+        "news": [
+            {
+                "title": "Landslides in Wayanad, Kerala: Latest Updates",
+                "url": "https://www.thehindu.com/news/national/kerala/landslides-in-wayanad-kerala/article32670874.ece"
+            },
+            {
+                "title": "Kerala Landslides in Wayanad: Death Toll Rises",
+                "url": "https://www.ndtv.com/kerala-news/kerala-landslides-in-wayanad-death-toll-rises-2280328"
+            },
+            {
+                "title": "Landslide in Wayanad Leaves Many Dead",
+                "url": "https://timesofindia.indiatimes.com/city/kozhikode/landslide-in-wayanad-leaves-many-dead/articleshow/74063256.cms"
+            }
+        ],
+        "donationProgress": {
+            "currentAmount": 250,
+            "goalAmount": 5000,
+            "lastUpdated": "2024-08-05"
+        }
+    }
+]

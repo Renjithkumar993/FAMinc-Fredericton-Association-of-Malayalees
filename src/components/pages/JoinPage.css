@@ -1,0 +1,49 @@
+/* src/JoinPage.css */
+.join-page {
+    max-width: 600px;
+    margin: 0 auto;
+    padding: 20px;
+    border: 1px solid #ccc;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    background-color: #fff;
+    text-align: center;
+}
+
+.join-page h2 {
+    margin-bottom: 20px;
+    color: #007bff;
+}
+
+.join-page p {
+    margin-bottom: 15px;
+    font-size: 16px;
+    color: #333;
+}
+
+.join-page ul {
+    list-style-type: disc;
+    padding-left: 20px;
+    text-align: left;
+    margin-bottom: 20px;
+}
+
+.join-page ul li {
+    margin-bottom: 10px;
+    font-size: 16px;
+    color: #333;
+}
+
+.joinpage-button {
+    padding: 10px 20px;
+    background-color: #ff6341 ;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+}
+
+.joinpage-button:hover {
+    background-color: #eb4823 ;
+}

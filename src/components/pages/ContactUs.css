@@ -1,0 +1,133 @@
+.contact-us-page {
+  margin-top: 100px;
+}
+
+.hero-banner {
+  background-color: #ff6341;
+  color: white;
+  padding: 50px 0;
+  text-align: center;
+}
+
+.hero-banner h1 {
+  font-size: 3rem;
+  margin-bottom: 10px;
+}
+
+.hero-banner p {
+  font-size: 1.5rem;
+  margin-bottom: 0;
+}
+
+.contact-us-container {
+  margin: 50px 0;
+}
+
+.left-col, .right-col {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 20px;
+}
+
+.logo-image {
+  width: 100%;
+  max-width: 300px;
+  border-radius: 50%;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+  object-fit: cover;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.logo-image:hover {
+  transform: scale(1.05);
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.15);
+}
+
+.contactushead {
+  font-weight: 700;
+  color: #333;
+  font-size: 2.5rem;
+  margin-bottom: 20px;
+}
+
+.contact-info {
+  font-size: 1.2rem;
+  margin-bottom: 20px;
+  line-height: 1.6;
+}
+
+.contact-link {
+  color: #ff6341;
+  text-decoration: none;
+  font-weight: bold;
+  transition: color 0.3s ease, text-decoration 0.3s ease;
+}
+
+.contact-link:hover {
+  color: #ff6341;
+  text-decoration: underline;
+}
+
+.social-links {
+  margin-top: 20px;
+}
+
+.facebook-link {
+  color: #ff6341;
+  font-size: 1.2rem;
+  text-decoration: none;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  transition: color 0.3s ease;
+}
+
+.facebook-link:hover {
+  color: #ff6341;
+}
+
+.facebook-link i {
+  font-size: 1.5rem;
+}
+
+.map-container {
+  width: 100%;
+  height: 450px; /* Set height for the map container */
+  margin: 0; /* Remove any margins */
+  padding: 0; /* Remove any padding */
+}
+
+.map-container iframe {
+  border: 0; /* Remove border */
+  width: 100%;
+  height: 100%;
+  display: block;
+}
+
+@media (max-width: 768px) {
+  .hero-banner h1 {
+    font-size: 2rem;
+  }
+
+  .hero-banner p {
+    font-size: 1.2rem;
+  }
+
+  .contact-us-container {
+    margin: 20px 0;
+  }
+
+  .left-col, .right-col {
+    text-align: center;
+    padding: 10px;
+  }
+
+  .logo-image {
+    max-width: 60%;
+  }
+
+  .right-col {
+    margin-top: 20px;
+  }
+}

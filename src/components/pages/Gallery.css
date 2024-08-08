@@ -1,0 +1,46 @@
+
+.Gallery-page {
+  margin-top: 100px;
+  position: relative;
+  min-height: 100vh; 
+}
+
+.gallery-loading-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+}
+
+.error-message {
+  text-align: center;
+  color: red;
+  font-size: 18px;
+  margin-top: 20px;
+}
+
+.event-heading{
+    color:#ff6341;
+    font-size: 2rem;
+  margin-bottom: 20px;
+  }
+
+  .error-message-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 500px;
+    margin-top: 50px;
+  }
+  
+  .error-message {
+    font-size: 1.5em;
+    color: #ff6347;
+    padding: 20px;
+    border: 2px solid #ff6347;
+    border-radius: 10px;
+    background-color: #fff5f5;
+  }
+  .mt-5 {
+    margin-top: 3rem;
+  }

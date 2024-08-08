@@ -1,0 +1,91 @@
+.footer-section {
+  background: #222;
+  color: #fff;
+  padding: 40px 0;
+}
+
+.footer-widget {
+  margin-bottom: 30px;
+}
+
+.footer-widget h3 {
+  position: relative;
+  padding-bottom: 10px;
+}
+
+.footer-widget h3::after {
+  content: '';
+  position: absolute;
+  width: 50px;
+  height: 2px;
+  background: #ff6341;
+  left: 0;
+  bottom: 0;
+}
+
+.footer-links {
+  list-style: none;
+  padding: 0;
+}
+
+.footer-links li {
+  margin-bottom: 10px;
+}
+
+.footer-links a {
+  color: #fff;
+  text-decoration: none;
+  transition: color 0.3s;
+}
+
+.footer-links a:hover {
+  color: #ff6341;
+}
+
+.footer-bottom {
+  margin-top: 30px;
+  padding-top: 20px;
+  border-top: 1px solid #444;
+}
+
+.footer-bottom p {
+  margin: 0;
+}
+
+.footer-social {
+  margin-top: 10px;
+}
+
+.footer-social a {
+  color: #fff;
+  margin: 0 10px;
+  font-size: 1.2rem;
+  transition: color 0.3s;
+}
+
+.footer-social a:hover {
+  color: #ff6341;
+}
+
+.link-button {
+  background: none;
+  border: none;
+  color: #007bff;
+  text-decoration: underline;
+  cursor: pointer;
+  padding: 0;
+  font: inherit;
+}
+
+.link-button:hover,
+.link-button:focus {
+  text-decoration: none;
+  color: #0056b3;
+}
+
+/* Ensure dimensions for images and icons */
+.footer-social a i {
+  width: 24px;
+  height: 24px;
+  display: inline-block;
+}

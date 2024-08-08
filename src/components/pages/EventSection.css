@@ -1,0 +1,115 @@
+.event-section-page {
+
+  position: relative;
+  overflow: hidden;
+  padding-top: 30px;
+}
+
+.event-section-page .filter-row .form-control {
+  border-radius: 20px;
+  padding: 10px;
+  font-size: 1rem;
+  border: 1px solid #ddd;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+.event-section-page .vertical-timeline::before {
+  background: #000; /* Change timeline line color to black */
+}
+
+.event-section-page .vertical-timeline-element--work {
+  border-color: rgb(33, 150, 243);
+}
+
+.event-section-page .vertical-timeline-element--education {
+  border-color: rgb(233, 30, 99);
+}
+
+.event-section-page .vertical-timeline-element-subtitle {
+  margin-bottom: 10px;
+ 
+}
+
+.event-section-page .vertical-timeline-element p {
+  margin: 5px 0;
+  color: #666;
+}
+
+.event-section-page .event-additional-details {
+  margin: 10px 0;
+}
+
+.event-section-page .vertical-timeline-element button {
+  margin-top: 10px;
+  border-radius: 20px;
+}
+
+.event-section-page .event-card-content {
+  display: flex;
+  align-items: flex-start;
+  flex-wrap: wrap;
+}
+
+.event-section-page .event-timeline-image {
+  width: 100px;
+  height: 100px;
+  margin-right: 20px;
+  border-radius: 10px;
+  overflow: hidden;
+}
+
+.event-section-page .timeline-image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.event-section-page .event-card-details {
+  flex: 1;
+ 
+}
+
+.custom-date {
+  padding: 5px 10px;
+  border-radius: 10px; /* Rounded corners for the date box */
+  color: red;
+  font-weight: bold;
+}
+
+.registrationButton {
+  display: block;
+}
+
+.event-heading {
+  color: #ff6341;
+  font-size: 2rem;
+  margin-bottom: 20px;
+}
+
+/* Responsive styles */
+@media (max-width: 768px) {
+  .event-section-page .event-card-content {
+    flex-direction: column;
+    align-items: start;
+  }
+
+  .event-section-page .event-timeline-image {
+    margin-bottom: 20px;
+  }
+
+  .event-section-page .event-card-details {
+    text-align: start;
+  }
+}
+
+@media (max-width: 576px) {
+  .event-section-page .filter-row .form-control {
+    font-size: 0.875rem;
+    padding: 8px;
+  }
+
+  .event-section-page .event-timeline-image {
+    width: 80px;
+    height: 80px;
+  }
+}

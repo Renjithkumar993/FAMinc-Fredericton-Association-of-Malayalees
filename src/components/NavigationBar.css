@@ -1,0 +1,74 @@
+.navbar {
+  background-color: transparent !important;
+  transition: background-color 0.3s ease;
+}
+
+.navbar-scrolled {
+  background-repeat: repeat;
+}
+
+
+.logo {
+   height: 50px;
+   width: 50px;
+  border-radius: 50%;
+  margin-right: 10px;
+  transition: height 0.3s ease, width 0.3s ease;
+}
+
+
+
+
+
+
+.navbar button, .navbar .MuiIconButton-root {
+  color: white;
+  font-size: 1rem;
+}
+
+.navbar-scrolled button, .navbar-scrolled .MuiIconButton-root {
+  color: black;
+}
+
+.navbar button:hover, .navbar .MuiIconButton-root:hover {
+  background-color: transparent;
+  color: #ff5722;
+}
+
+.navbar button::after, .navbar .MuiIconButton-root::after {
+  content: "";
+  position: absolute;
+  width: 0%;
+  height: 2px;
+  bottom: -5px;
+  left: 0;
+  background-color: #ff5722;
+  transition: width 0.3s ease;
+}
+
+.navbar button:hover::after, .navbar .MuiIconButton-root:hover::after {
+  width: 100%;
+}
+
+.navbar .MuiIconButton-root {
+  font-size: 2rem;
+}
+
+@media (max-width: 768px) {
+  .navbar-scrolled {
+    background-color: white !important;
+  }
+
+  .navbar .MuiDrawer-paper {
+    background-color: white !important;
+  }
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+a:hover {
+  color: inherit;
+}

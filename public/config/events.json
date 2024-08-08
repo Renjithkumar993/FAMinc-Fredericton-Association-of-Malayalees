@@ -1,0 +1,74 @@
+[
+  {
+    "title": "FAM Onam 2024",
+    "date": "2024-09-14",
+    "description": "A fun-filled day with games, activities, and delicious food.",
+    "image": "/images/events/onam.jpeg",
+    "details": "Join us for a traditional Onam celebration with various activities including games, cultural performances, and a grand feast.",
+    "time": "11:00 AM - 8:00 PM",
+    "location": "715 rue, Priestman St, Fredericton, NB E3B 5W7, Canada",
+    "isOpen": true,
+    "formIframe": "https://www.zeffy.com/ticketing/63199576-2e24-49e2-9fe1-499849096770",
+    "performanceIframe": "https://forms.office.com/r/3wuM4y4ayE",
+    "upcomingEvent": true,
+    "extraDetails": {
+      "about": "Onam is more than just a festival; it's a celebration of Kerala's culture, a time for family reunions, and an opportunity to connect with our roots. It embodies the spirit of unity in diversity, bringing together people of all faiths in joyous harmony.",
+      "activities": [
+        "Feast on our elaborate 'Onam Sadhya,' a sumptuous vegetarian banquet served on banana leaves.",
+        "Enjoy traditional folk songs and dances.",
+        "Marvel at intricate floral decorations known as 'Athapookkalam' or 'Onappookkalam'.",
+        "Participate in cultural programs and games that bring our community together."
+      ]
+    },
+    "extraLinks": [
+      {
+        "text": "Learn more about Onam",
+        "url": "https://en.wikipedia.org/wiki/Onam"
+      },
+      {
+        "text": "Learn more about Onam - Kerala Tourism",
+        "url": "https://www.keralatourism.org/onam"
+      }
+      
+    ]
+  },
+  {
+    "title": "Christmas and New Year Celebration",
+    "date": "2023-12-23",
+    "description": "Celebrate the festive season with our combined Christmas and New Year party featuring music, dance, and a visit from Santa.",
+    "image": "/images/events/famxmas.jpeg",
+    "details": "Join us for a grand celebration of Christmas and New Year. Enjoy live music, dance performances, and a special visit from Santa Claus. The event will feature delicious holiday treats and a spectacular fireworks display to welcome the new year.",
+    "time": "1:00 PM - 9:00 PM",
+    "location": "Fredericton, NB",
+    "isOpen": false,
+    "formIframe": "https://www.zeffy.com/embed/ticketing/12345678-9abc-def0-1234-56789abcdef0",
+    "performanceIframe": "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2795.274308336435!2d-66.64458378446987!3d45.96358997910885!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x4ca43ae1f0f3b7a5%3A0x32a4958fdbb5a905!2sFredericton%2C%20NB!5e0!3m2!1sen!2sca!4v1605295357034!5m2!1sen!2sca",
+    "upcomingEvent": false
+  },
+  {
+    "title": "FAM Family Picnic",
+    "date": "2024-06-29",
+    "description": "A day of family fun with games, food, and activities for all ages.",
+    "image": "/images/events/fampicnic.jpeg",
+    "details": "Join us for the FAM Family Picnic, a day filled with fun activities for all ages. Enjoy outdoor games, delicious food, and various entertainment options. This event is perfect for spending quality time with family and friends in a beautiful park setting.",
+    "time": "11:00 AM - 4:00 PM",
+    "location": "Fredericton, NB",
+    "isOpen": false,
+    "formIframe": "https://www.zeffy.com/embed/ticketing/09876543-21f0-edcb-5432-1fedcba98765",
+    "performanceIframe": "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2795.274308336435!2d-66.64458378446987!3d45.96358997910885!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x4ca43ae1f0f3b7a5%3A0x32a4958fdbb5a905!2sFredericton%2C%20NB!5e0!3m2!1sen!2sca!4v1605295357034!5m2!1sen!2sca",
+    "upcomingEvent": false
+  },
+  {
+    "title": "FAM Logo Contest",
+    "date": "2024-03-04",
+    "description": "Inviting everyone to be part of the logo contest.",
+    "image": "",
+    "details": "We would like to express our appreciation for your enthusiastic engagement in our logo contest. As we move into the next phase, we kindly invite all members to participate in voting for their favorite logos. You will have the opportunity to vote for multiple logos. All 16 logos received have been compiled into two sheets, and we kindly ask for your votes for your preferred logo using the provided voting poll.",
+    "time": "11:00 AM - 4:00 PM",
+    "location": "Fredericton, NB",
+    "isOpen": false,
+    "formIframe": "",
+    "performanceIframe": "",
+    "upcomingEvent": false
+  }
+]

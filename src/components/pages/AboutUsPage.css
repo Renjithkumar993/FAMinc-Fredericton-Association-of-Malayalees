@@ -1,0 +1,186 @@
+
+.about-us-page {
+  color: black !important;
+  padding: 20px;
+}
+
+.about-us-content {
+  padding: 20px;
+  text-align: left;
+}
+
+.about-us-content h1 {
+  font-size: 2.5rem;
+  color: black;
+}
+
+.about-us-content h2 {
+  font-size: 2rem;
+  margin-bottom: 20px;
+  color: #ff6341;
+}
+
+.about-description p,
+.mission-description p,
+.mission-vision p {
+  font-size: 1.2rem;
+  margin-bottom: 20px;
+  line-height: 1.8;
+  color: black;
+}
+
+.image-container {
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+.about-image {
+  width: 100%;
+  height: auto;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.statistics {
+  margin-top: 20px;
+}
+
+.stat-item ul {
+  list-style-type: none;
+  padding: 0;
+}
+
+.stat-item ul li {
+  font-size: 1.3rem;
+  margin-bottom: 10px;
+  padding-left: 35px;
+  position: relative;
+  line-height: 1.8;
+}
+
+.stat-item ul li::before {
+  content: '✔';
+  position: absolute;
+  left: 0;
+  right: 5;
+  padding-right: 10px;
+  color: #ff6341 !important;
+  font-size: 1.3rem;
+}
+
+.mission-vision {
+  text-align: left;
+}
+
+.mission-vision h2 {
+  font-size: 2rem;
+  margin-bottom: 20px;
+  color: #ff6341;
+  text-align: left;
+}
+
+.animate {
+  transform: translateY(0);
+  opacity: 1;
+  transition: all 0.5s ease-in-out;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes slideIn {
+  from {
+    transform: translateY(100px);
+    opacity: 0;
+  }
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+.fade-in {
+  animation: fadeIn 1s ease-in-out;
+}
+
+.slide-in {
+  animation: slideIn 1s ease-in-out;
+}
+
+@media (max-width: 768px) {
+  .about-us-content {
+    padding: 40px 10px;
+  }
+
+  .about-us-content h1 {
+    font-size: 2rem;
+  }
+
+  .about-us-content h2 {
+    font-size: 1.5rem;
+  }
+
+  .about-description p,
+  .mission-description p,
+  .mission-vision p {
+    font-size: 1rem;
+  }
+
+  .stat-item ul li {
+    font-size: 1.1rem;
+  }
+}
+
+@media (max-width: 576px) {
+  .about-us-content {
+    padding: 30px 5px;
+  }
+
+  .about-us-content h1 {
+    font-size: 1.8rem;
+  }
+
+  .about-us-content h2 {
+    font-size: 1.2rem;
+  }
+
+  .about-description p,
+  .mission-description p,
+  .mission-vision p {
+    font-size: 0.9rem;
+  }
+
+  .stat-item ul li {
+    font-size: 1rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .about-us-content {
+    padding: 20px 5px;
+  }
+
+  
+  
+  
+
+  
+  
+  
+
+  .about-description p,
+  .mission-description p,
+  .mission-vision p {
+    font-size: 0.9rem;
+  }
+
+  .stat-item ul li {
+    font-size: 1rem;
+  }
+}

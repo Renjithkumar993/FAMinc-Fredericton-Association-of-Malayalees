@@ -1,0 +1,115 @@
+.advertising-container {
+    padding: 10px;
+    border: 1px solid #ddd;
+    border-radius: 10px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    background-color: inherit;
+    max-width: 800px;
+    margin: 20px auto;
+    text-align: center;
+    transition: transform 0.3s ease;
+}
+
+.advertising-container:hover {
+    transform: translateY(-5px);
+}
+
+.ad-label {
+    font-size: 1.2rem;
+    color: #444;
+    margin-bottom: 10px;
+    font-weight: bold;
+}
+
+.image-col {
+    margin: 10px 0;
+}
+
+.advertising-image,
+.sponsor-image {
+    max-width: 250px;
+    height: auto;
+    border-radius: 10px;
+    transition: transform 0.3s ease;
+}
+
+.advertising-image:hover,
+.sponsor-image:hover {
+    transform: scale(1.05);
+}
+
+.advertising-text {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.advertising-text h4 {
+    margin: 0;
+    font-size: 1.2rem;
+    color: #333;
+}
+
+.stats-container {
+    display: flex;
+    justify-content: space-around;
+    margin-top: 5px;
+}
+
+.countup {
+    font-size: 0.9rem;
+    font-weight: bold;
+    margin: 5px;
+    display: flex;
+    align-items: center;
+}
+
+.countup i {
+    margin-right: 5px;
+    color: #ff6341;
+}
+
+.adv-button {
+    background-color: #ff6341 !important;
+    border: none !important;
+    padding: 10px 20px !important;
+    border-radius: 20px !important;
+    font-size: 0.9rem;
+    font-weight: bold;
+    margin-top: 10px;
+    transition: background-color 0.3s ease, transform 0.3s ease;
+}
+
+.adv-button:hover {
+    background-color: #ff4500 !important;
+    transform: translateY(-2px);
+}
+
+.adv-button:focus {
+    outline: none !important;
+    box-shadow: none !important;
+}
+
+@media (max-width: 576px) {
+    .advertising-container {
+        padding: 10px;
+        max-width: 90%;
+    }
+
+    .advertising-image,
+    .sponsor-image {
+        max-width: 200px;
+    }
+
+    .advertising-text h4 {
+        font-size: 1rem;
+    }
+
+    .countup {
+        font-size: 0.8rem;
+    }
+
+    .adv-button {
+        padding: 8px 16px;
+    }
+}

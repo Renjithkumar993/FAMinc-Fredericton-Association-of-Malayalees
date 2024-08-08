@@ -1,0 +1,105 @@
+.landing-page {
+  position: relative;
+}
+
+.carousel .carousel-slide {
+  position: relative;
+  background-size: cover;
+  background-position: center;
+  height: 66vh;
+}
+
+
+
+
+
+
+
+
+
+
+.text-content {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  color: white;
+  text-align: center;
+  z-index: 2;
+  width: 100%;
+  padding: 20px;
+}
+
+.welcome-message {
+  font-size: 4em ;
+  margin-bottom: 10px;
+  font-weight: bold;
+  text-shadow: 4px 4px 4px rgba(0, 0, 0, 0.8), 4px 4px 8px rgba(0, 0, 0, 0.6);
+}
+
+.text-content p {
+  font-size: 1.2em;
+  margin: 10px 0;
+}
+
+@media (min-width: 1200px) {
+  .welcome-message {
+    font-size: 4em;
+  }
+
+  .text-content p {
+    font-size: 1.5em;
+  }
+}
+
+.button-group {
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+}
+
+.button-group button {
+  font-size: 1em;
+  padding: 10px 20px;
+  margin: 5px;
+  border: none;
+  border-radius: 25px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.button-group .primary-btn {
+  background: #ff6341;
+  color: #fff;
+}
+
+.button-group .primary-btn:hover {
+  background-color: #f03e07;
+}
+
+.secondary-btn {
+  background-color: #4a5568;
+  color: #fff;
+}
+
+.secondary-btn:hover {
+  background-color: #2d3748;
+}
+
+@media (max-width: 768px) {
+  .carousel .carousel-slide {
+    height: 100vh;
+  }
+
+  .text-content {
+    padding: 40px 20px;
+  }
+
+  .welcome-message {
+    font-size: 2.5em;
+  }
+
+  .text-content p {
+    font-size: 1.3em;
+  }
+}

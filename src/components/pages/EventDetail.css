@@ -1,0 +1,76 @@
+/* EventDetail.css */
+.event-container {
+  padding: 3rem 1rem;
+  background: inherit;
+}
+
+.event-header {
+  text-align: center;
+  margin-bottom: 2rem;
+}
+
+.event-title {
+  font-size: 2.5rem;
+  font-weight: 700;
+  color: #333;
+  margin-bottom: 1.5rem;
+}
+
+.event-image-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 2rem;
+}
+
+.event-image {
+  max-width: 100%;
+  height: auto;
+}
+
+.event-details {
+  color: #555;
+}
+
+.event-icon {
+  margin-right: 0.5rem;
+}
+
+.event-actions {
+  margin-top: 2rem;
+  text-align: center;
+}
+
+.event-button {
+  background: linear-gradient(135deg, #ff7e5f, #feb47b);
+  border: none;
+  border-radius: 30px;
+  padding: 0.75rem 1.5rem;
+  font-size: 1.2rem;
+  margin: 0.5rem;
+  transition: background 0.3s;
+  color: #fff;
+}
+
+.event-button:hover {
+  background: linear-gradient(135deg, #feb47b, #ff7e5f);
+}
+
+.event-info {
+  font-size: 1.1rem;
+}
+
+.event-info h5 {
+  color: #333;
+  font-weight: 600;
+  margin-top: 1.5rem;
+}
+
+.event-info p {
+  margin-bottom: 1rem;
+}
+
+.event-header img {
+  max-width: 150px;
+  margin-bottom: 1.5rem;
+}
