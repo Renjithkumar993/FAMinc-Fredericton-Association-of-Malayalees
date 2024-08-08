@@ -8,6 +8,7 @@ This is the official website for the Fredericton Association of Malayalees (FAM)
 - [Features](#features)
 - [Installation](#installation)
 - [Usage](#usage)
+- [Technologies Used](#technologies-used)
 - [Components](#components)
 - [Contributing](#contributing)
 - [License](#license)
@@ -53,15 +54,8 @@ To run this project locally, follow these steps:
 
 ## Usage
 
-## License
-This project is licensed under the MIT License.
-
 ### Development
 
 To run the project in development mode, use:
 ```sh
 npm start
-
-
-
-
