@@ -70,10 +70,6 @@
   "devDependencies": {
     "eslint-config-react-app": "^7.0.1",
     "react-snap": "^1.23.0"
-  },
-  "reactSnap": {
-  "inlineCss": true,
-  "puppeteerArgs": ["--no-sandbox", "--disable-setuid-sandbox"]
-}
+  }
 
 }
