@@ -4,6 +4,7 @@ import 'react-image-gallery/styles/css/image-gallery.css';
 import Breadcrumbs from '../Breadcrumbs';
 import Loading from '../Loading'; // Ensure this is the correct path to your Loading component
 import "./Gallery.css";
+import HelmetWrapper from '../HelmetWrapper'; 
 
 const Gallery = () => {
   const [images, setImages] = useState([]);
@@ -48,6 +49,10 @@ const Gallery = () => {
     return (
       <div className="gallery-loading-container">
         <Loading loading={true} />
+        <HelmetWrapper 
+          pageTitle="Gallery - Fredericton Association of Malayalees" 
+          description="Explore images and videos from events hosted by the Fredericton Association of Malayalees in Canada. Stay connected with our community through our vibrant gallery." 
+        />
       </div>
     );
   }
@@ -55,6 +60,10 @@ const Gallery = () => {
   if (error) {
     return (
       <div className="container Gallery-page">
+        <HelmetWrapper 
+          pageTitle="Gallery - Fredericton Association of Malayalees" 
+          description="Explore images and videos from events hosted by the Fredericton Association of Malayalees in Canada. Stay connected with our community through our vibrant gallery." 
+        />
         <div className="mt-5">
           <Breadcrumbs className="mt-5" />
         </div>
@@ -67,21 +76,27 @@ const Gallery = () => {
   }
 
   return (
-    <div className='container Gallery-page'>
-      <div className='mt-5'>
-        <Breadcrumbs className='mt-5' />
-      </div>
-      <h1 className='event-heading'>Our Gallery</h1>
-      <ImageGallery
-        items={images}
-        showThumbnails={true}
-        thumbnailPosition='left'
-        infinite={true}
-        autoPlay={true}
-        onImageLoad={handleImageLoad}
-        lazyLoad={true}
+    <>
+      <HelmetWrapper 
+        pageTitle="Gallery - Fredericton Association of Malayalees" 
+        description="Explore images and videos from events hosted by the Fredericton Association of Malayalees in Canada. Stay connected with our community through our vibrant gallery." 
       />
-    </div>
+      <div className='container Gallery-page'>
+        <div className='mt-5'>
+          <Breadcrumbs className='mt-5' />
+        </div>
+        <h1 className='event-heading'>Our Gallery</h1>
+        <ImageGallery
+          items={images}
+          showThumbnails={true}
+          thumbnailPosition='left'
+          infinite={true}
+          autoPlay={true}
+          onImageLoad={handleImageLoad}
+          lazyLoad={true}
+        />
+      </div>
+    </>
   );
 };
 

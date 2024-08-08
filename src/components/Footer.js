@@ -35,7 +35,7 @@ const Footer = () => {
                 </li>
                 <li>
                   <button onClick={() => handleNavigate('/aboutus')} className="link-button">
-                    About
+                    About Us
                   </button>
                 </li>
                 <li>

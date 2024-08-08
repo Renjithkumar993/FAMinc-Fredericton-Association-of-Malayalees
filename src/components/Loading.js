@@ -5,7 +5,7 @@ import './Loading.css';
 const Loading = ({ loading }) => {
   return (
     <div className="loading-container">
-      <PropagateLoader color="#ff6341" loading={loading} size={30} />
+      <PropagateLoader color="#ff6341" loading={loading} size={15} />
     </div>
   );
 };
