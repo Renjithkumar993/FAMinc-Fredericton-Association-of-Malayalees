@@ -1,7 +1,6 @@
 import React, { useState, useEffect, Suspense, lazy } from 'react';
 import { Row, Col, Button } from 'react-bootstrap';
-import { Typography, Box, LinearProgress } from '@mui/material';
-import '@fortawesome/fontawesome-free/css/all.min.css';
+import { Typography, Box } from '@mui/material';
 import './CampaignComponent.css';
 
 const ModalComponent = lazy(() => import('../ModalComponent'));
@@ -53,30 +52,21 @@ const CampaignComponent = () => {
                 <Row className="align-items-center text-left mt-4 donation-header">
                     <Col xs={12} md={8} className="donation-info">
                         <Typography variant="h4" component="h1">
-                            Stand With Wayanad:   Donate now and be part of Wayanad's story of resilience and rebirth.
+                            Stand With Wayanad: Donate now and be part of Wayanad's story of resilience and rebirth.
                         </Typography>
                         <Typography variant="h6" component="h2">
-                            Total Amount Collected: $ {donationProgress.toLocaleString()} 
+                            Total Amount Collected: ${donationProgress.toLocaleString()} 
                         </Typography>
-                        {/* <Box className="progress-container"> */}
-                            {/* <LinearProgress variant="determinate" value={progress} /> */}
-                            {/* <Typography variant="body2" color="textSecondary"> */}
-                                {/* {donationProgress} $ / {goalAmount} $ */}
-                            {/* </Typography> */}
-                        {/* </Box> */}
                         <Typography variant="body2" component="p">
                             Last Updated: {lastUpdated}
                         </Typography>
                     </Col>
-                    <Col xs={12} md={4} className="button-col">
+                    <Col xs={12} md={4} className="button-col mt-3">
                         <Button
-                       
-                         
                             onClick={handleModalShow}
                             className="donate-button"
-                            startIcon={<img src={`${process.env.PUBLIC_URL}/images/icons/donateicon.png`} alt="Donate Icon" className="donate-icon" />}
-                           
                         >
+                            <img src={`${process.env.PUBLIC_URL}/images/icons/donateicon.png`} alt="Donate Icon" className="donate-icon" />
                             Make a Difference / Donate Now
                         </Button>
                     </Col>
@@ -104,9 +94,9 @@ const CampaignComponent = () => {
                             Your Support Can Rebuild Lives
                         </Typography>
                         <Typography variant="body1" component="p" className="campaign-description">
-                            Fredericton Association of Malayalees (FAM) is reaching out to you - our extended family in Fredericton and beyond. Every złoty you contribute is a building block for a new home, a lifeline for a struggling family, and a beacon of hope for our brothers and sisters in Wayanad.
+                            Fredericton Association of Malayalees (FAM) is reaching out to you - our extended family in Fredericton and beyond. Every dollar you contribute is a building block for a new home, a lifeline for a struggling family, and a beacon of hope for our brothers and sisters in Wayanad.
                         </Typography>
-                        <Typography variant="h5" component="h2" className='mt-3'>
+                        <Typography variant="h5" component="h2" className="mt-3">
                             Act Now, Impact Forever
                         </Typography>
                         <Typography variant="body1" component="p" className="campaign-description">
@@ -115,9 +105,6 @@ const CampaignComponent = () => {
                         <Typography variant="body1" component="p" className="campaign-description mt-3">
                             As the Fredericton Association of Malayalees (FAM), we stand as a bridge between our adopted home and our roots. Our community in Fredericton has always come together in times of need, and now, we have a chance to extend our hands across continents.
                         </Typography>
-                       
-                       
-                       
                     </Col>
                 </Row>
                 <Row className="align-items-center text-center mt-4">
@@ -155,3 +142,4 @@ const CampaignComponent = () => {
 };
 
 export default CampaignComponent;
+
