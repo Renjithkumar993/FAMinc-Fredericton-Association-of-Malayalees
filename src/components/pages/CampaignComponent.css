@@ -1,160 +1,134 @@
-/* Campaign Component Styling */
-.campaign {
+.campaign-container {
     max-width: 1200px;
-    margin: 30px auto;
-    background-color: inherit;
-    border-radius: 15px;
-;
-    overflow: hidden;
+    margin: 0 auto;
+    padding: 30px 15px;
 }
 
-/* Header Image */
-.header-image img {
+.header-image {
     border-radius: 15px;
     width: 100%;
     height: auto;
-    
-
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
 }
 
-/* Donation Header */
-.donation-header {
-    padding: 30px;
-    background: linear-gradient(135deg, #ff914d, #ff6341);
-    border-radius: 15px;
-    margin-bottom: 30px;
-    color: #ffffff;
-}
-
-.donation-info h1 {
-    font-size: 2.5rem;
+.campaign-title {
     font-weight: 700;
-    margin-bottom: 15px;
+    margin-top: 20px;
+    color: #333;
 }
 
-.donation-info h2 {
-    font-size: 1.8rem;
+.donation-amount {
     font-weight: 600;
-    margin-bottom: 10px;
-}
-
-.donation-info p {
-    font-size: 1rem;
-    margin-bottom: 0;
-}
-
-.button-col {
-    text-align: center;
+    color: #ff6341;
+    margin-top: 15px;
 }
 
 .donate-button {
-    background: linear-gradient(135deg, #ff914d, #ff6341);
+    background: #ff6341;
     color: #fff;
     padding: 15px 30px;
     border-radius: 50px;
-    font-size: 1.3rem;
+    font-size: 1.2rem;
     font-weight: bold;
     transition: all 0.3s ease;
     box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+    display: inline-flex;
+    align-items: center;
 }
 
 .donate-button:hover {
-    background: linear-gradient(135deg, #ff6341, #ff914d);
+    background: #ff4500;
     transform: scale(1.05);
-    box-shadow: 0 8px 30px rgba(0, 0, 0, 0.3);
 }
 
 .donate-icon {
-    width: 28px;
-    height: 28px;
-    margin-right: 12px;
+    width: 24px;
+    height: 24px;
+    margin-right: 10px;
 }
 
-/* Campaign Description */
-.campaign-description {
-    font-size: 1.1rem;
-    line-height: 1.6;
-    margin-bottom: 20px;
-    color: #555;
-}
-
-.campaign h1, .campaign h2, .campaign h5 {
+.section-title {
+    font-weight: 600;
     color: #333;
     margin-bottom: 20px;
+    text-align: left;
 }
 
-/* Latest News */
-.latest-news {
+.section-text {
+    font-size: 1.1rem;
+    line-height: 1.7;
+    margin-bottom: 20px;
+    color: #555;
+    text-align: left;
+}
+
+.last-updated {
+    font-size: 0.9rem;
+    
+    margin-top: 10px;
+    text-align: center;
+}
+
+.news-list {
     list-style-type: none;
     padding: 0;
     margin: 30px 0;
 }
 
-.latest-news li {
-    font-size: 1.1rem;
+.news-list li {
+    font-size: 1rem;
     color: #ff6341;
     margin-bottom: 15px;
     transition: color 0.3s ease;
 }
 
-.latest-news li a {
+.news-list li a {
     color: inherit;
     text-decoration: none;
 }
 
-.latest-news li:hover {
-    color: #ff914d;
+.news-list li:hover {
+    color: #ff4500;
     text-decoration: underline;
 }
 
-/* Video Embeds */
-iframe {
-    border-radius: 15px;
-    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.15);
+.campaign-videos iframe {
+    border-radius: 10px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
 }
 
-/* Media Queries for Responsiveness */
+/* Responsive Design */
 @media (max-width: 768px) {
-    .campaign {
+    .campaign-container {
         padding: 20px;
-        max-width: 95%;
     }
 
-    .donation-info h1 {
-        font-size: 2rem;
+    .section-title {
+        font-size: 1.8rem;
+        text-align: center;
     }
 
-    .donation-info h2 {
-        font-size: 1.5rem;
+    .section-text {
+        font-size: 1rem;
+        text-align: center;
     }
 
     .donate-button {
         padding: 12px 24px;
         font-size: 1.1rem;
     }
+
+    .last-updated {
+        text-align: center;
+    }
 }
 
 @media (max-width: 576px) {
-    .campaign {
-        padding: 15px;
-        max-width: 100%;
+    .section-title {
+        font-size: 1.5rem;
     }
 
-    .donation-info h1 {
-        font-size: 1.8rem;
+    .section-text {
+        font-size: 0.95rem;
     }
-
-    .donation-info h2 {
-        font-size: 1.3rem;
-    }
-
-    .donate-button {
-        padding: 10px 20px;
-        font-size: 1rem;
-    }
-    
-.latest-news li a {
-   font-size: smaller;
-   
-}
 }

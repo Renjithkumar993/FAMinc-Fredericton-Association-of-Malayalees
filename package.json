@@ -16,7 +16,7 @@
     "@testing-library/jest-dom": "^5.17.0",
     "@testing-library/react": "^13.4.0",
     "bootstrap": "^5.3.3",
-    "framer-motion": "^11.3.8",
+    "framer-motion": "^11.3.24",
     "gh-pages": "^6.1.1",
     "gsap": "^3.12.5",
     "moment-timezone": "^0.5.45",
@@ -70,5 +70,4 @@
     "eslint-config-react-app": "^7.0.1",
     "react-snap": "^1.23.0"
   }
-
 }
