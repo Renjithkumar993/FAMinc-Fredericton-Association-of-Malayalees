@@ -20,7 +20,7 @@ const slides = [
     secondaryBtn: { text: 'More info', action: '/events' }
   },
   {
-    image: `${process.env.PUBLIC_URL}/images/heroimages/Kerala-hero1.avif`,
+    image: `${process.env.PUBLIC_URL}/images/heroimages/nb.jpg`,
     welcome: 'Be a part of our community',
     description: 'Join us and be a part of a vibrant and supportive community.',
     primaryBtn: { text: 'Join Now', action: '/joinus' },

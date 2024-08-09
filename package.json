@@ -67,7 +67,6 @@
     ]
   },
   "devDependencies": {
-    "eslint-config-react-app": "^7.0.1",
-    "react-snap": "^1.23.0"
+    "eslint-config-react-app": "^7.0.1"
   }
 }

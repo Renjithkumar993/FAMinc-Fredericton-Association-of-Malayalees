@@ -33,9 +33,9 @@ const BacklinkInfo = () => {
 
   return (
     <div className="component-container">
-      <div className="header">
-        <h1 className="title"><span className='hilite-color'>Welcome</span> to Our Places</h1>
-      </div>
+   
+   
+   
       <div className="locations">
         {locations.map((location, index) => {
           let ref = firstCardRef;
