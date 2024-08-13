@@ -10,8 +10,8 @@ const BacklinkInfo = () => {
     {
       name: "Kerala",
       description: "Kerala is a state in India, known for its natural beauty, backwaters, and vibrant culture. It is the homeland of the Malayalee community.",
-      image: `${process.env.PUBLIC_URL}/images/heroimages/Kerala2.png`,
-      link: "https://www.keralatourism.org/",
+      image: `${process.env.PUBLIC_URL}/images/heroimages/Kerala-hero.avif`,
+      link: "https://www.keralatourism.org/"
     },
     {
       name: "Fredericton",
