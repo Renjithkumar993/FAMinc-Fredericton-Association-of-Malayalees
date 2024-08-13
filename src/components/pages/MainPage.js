@@ -1,5 +1,4 @@
 import React, { useState, useEffect, Suspense } from 'react';
-import styled, { createGlobalStyle } from 'styled-components';
 import { Element } from 'react-scroll';
 import Loading from '../Loading';
 import FullWidthImage from '../FullWidthImage';

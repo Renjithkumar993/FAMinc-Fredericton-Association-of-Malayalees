@@ -1,7 +1,7 @@
 import React from 'react';
 import { Container, Row, Col, Button } from 'react-bootstrap';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faHandsHelping, faExclamationTriangle } from '@fortawesome/free-solid-svg-icons';
+import { faHandsHelping} from '@fortawesome/free-solid-svg-icons';
 import './CampaignTeaserComponent.css';
 import '@fortawesome/fontawesome-free/css/all.min.css';
 

@@ -35,13 +35,13 @@
 }
 
 .joinpage-button {
-    padding: 10px 20px;
+
     background-color: #ff6341 ;
     color: #fff;
     border: none;
     border-radius: 5px;
     cursor: pointer;
-    font-size: 16px;
+
 }
 
 .joinpage-button:hover {

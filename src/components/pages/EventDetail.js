@@ -106,7 +106,7 @@ const EventDetail = () => {
         </Row>
       </Container>
       <EventModals event={event} modalType={modalType} handleModalClose={handleModalClose} />
-      <EventSponsors />
+      {/* <EventSponsors /> */}
     </>
   );
 };

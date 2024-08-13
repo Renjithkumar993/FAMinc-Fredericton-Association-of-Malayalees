@@ -10,8 +10,8 @@ const BacklinkInfo = () => {
     {
       name: "Kerala",
       description: "Kerala is a state in India, known for its natural beauty, backwaters, and vibrant culture. It is the homeland of the Malayalee community.",
-      image: `${process.env.PUBLIC_URL}/images/heroimages/Kerala-hero.avif`,
-      link: "https://www.keralatourism.org/"
+      image: `${process.env.PUBLIC_URL}/images/heroimages/Kerala2.png`,
+      link: "https://www.keralatourism.org/",
     },
     {
       name: "Fredericton",
@@ -58,7 +58,9 @@ const BacklinkInfo = () => {
             >
               <div className="location-card-inner">
                 <div className="location-card-front">
-                  <img src={location.image} alt={location.name} className="location-image" />
+                  <div className="location-image-wrapper">
+                    <img src={location.image} alt={location.name} className="location-image" />
+                  </div>
                   <div className="location-content">
                     <FontAwesomeIcon icon={faMapMarkedAlt} className="icon mb-3" />
                     <h2 className="location-name">{location.name}</h2>

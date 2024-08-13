@@ -51,6 +51,26 @@ const AdvertisingComponent = () => {
         setClickCount(newClickCount);
         localStorage.setItem('clickCount', newClickCount);
         console.log('New click count:', newClickCount);
+
+    
+        fetch('http://famnb.ca/update_click_count.php', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json',
+            },
+            body: JSON.stringify({}),
+        })
+        .then(response => response.json())
+        .then(data => {
+            if (data.success) {
+                console.log('Click count updated on the server:', data.newCount);
+            } else {
+                console.error('Failed to update click count on the server:', data.message);
+            }
+        })
+        .catch(error => {
+            console.error('Error:', error);
+        });
     };
 
     if (!adData) {

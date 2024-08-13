@@ -51,7 +51,7 @@ const BenefitsList = styled(motion.ul)`
 `;
 
 const RegisterButton = styled(motion.button)`
-    padding: 15px 30px;
+    padding: 5px 20px;
     font-size: 1.2rem;
     background: #ff6341; /* Changed button color */
     color: #fff;
