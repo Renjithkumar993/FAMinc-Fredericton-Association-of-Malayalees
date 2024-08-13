@@ -1,12 +1,17 @@
 import React, { useState } from 'react';
-import { Container, Row, Col } from 'react-bootstrap';
-import 'bootstrap/dist/css/bootstrap.min.css';
+import { Container, Grid } from '@mui/material';
 import TextField from '@mui/material/TextField';
 import Button from '@mui/material/Button';
+import Snackbar from '@mui/material/Snackbar';
+import MuiAlert from '@mui/material/Alert';
 import { Facebook, Instagram, WhatsApp, Email } from '@mui/icons-material';
 import './ContactUs.css';
 import Breadcrumbs from '../Breadcrumbs';
 import HelmetWrapper from '../HelmetWrapper';
+
+const Alert = React.forwardRef(function Alert(props, ref) {
+  return <MuiAlert elevation={6} ref={ref} variant="filled" {...props} />;
+});
 
 const ContactUs = () => {
   const logofam = `${process.env.PUBLIC_URL}/images/logofam.jpg`;
@@ -17,7 +22,9 @@ const ContactUs = () => {
     message: ''
   });
 
+  const [openSnackbar, setOpenSnackbar] = useState(false);
   const [responseMessage, setResponseMessage] = useState('');
+  const [alertSeverity, setAlertSeverity] = useState('success');
 
   const handleChange = (e) => {
     setFormData({
@@ -30,7 +37,7 @@ const ContactUs = () => {
     event.preventDefault();
 
     try {
-      const response = await fetch('http://localhost:000/send-email.php', {
+      const response = await fetch('http://famnb.ca/send-email.php', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/x-www-form-urlencoded',
@@ -38,11 +45,29 @@ const ContactUs = () => {
         body: new URLSearchParams(formData),
       });
 
-      const result = await response.text();
-      setResponseMessage(result);
+      const result = await response.json();
+
+      if (result.success) {
+        setAlertSeverity('success');
+        setResponseMessage('Message has been sent. We will get back to you as soon as possible.');
+      } else {
+        setAlertSeverity('error');
+        setResponseMessage('There was an error sending the message. Please try again later.');
+      }
+      
+      setOpenSnackbar(true);
     } catch (error) {
+      setAlertSeverity('error');
       setResponseMessage('There was an error sending the message. Please try again later.');
+      setOpenSnackbar(true);
     }
+  };
+
+  const handleCloseSnackbar = (event, reason) => {
+    if (reason === 'clickaway') {
+      return;
+    }
+    setOpenSnackbar(false);
   };
 
   return (
@@ -54,29 +79,42 @@ const ContactUs = () => {
 
       <div className="hero-banner">
         <Container>
-          <Row>
-            <Col>
-              <h1>Contact Us</h1>
-              <p>Get in touch with the Fredericton Association of Malayalees</p>
-            </Col>
-          </Row>
+          <Grid container justifyContent="center" alignItems="center" direction="column">
+            <h1>Contact Us</h1>
+            <p>We'd love to hear from you! Feel free to reach out.</p>
+          </Grid>
         </Container>
       </div>
 
       <Container>
         <Breadcrumbs />
         <div className="contact-us-container">
-          <Row className='align-items-center'>
-            <Col md={6} className="left-col">
+        <Grid container spacing={4} justifyContent="center" alignItems="center">
+
+            <Grid item xs={12} md={6} className="left-col">
               <img src={logofam} alt="Logo" className="logo-image" />
-            </Col>
-            <Col md={6} className="right-col">
-              <h2 className="contactushead">Our Contact Details</h2>
+              <div className="social-links">
+                <a href="https://www.facebook.com/share/3BRkpFoRkYSc1fVm/?mibextid=WUal2a"target="_blank" rel="noopener noreferrer" className="social-icon">
+                  <Facebook fontSize="large" />
+                </a>
+                <a href="https://www.instagram.com/famnbca?igsh=MndpM3lzMWlmaHJq" target="_blank" rel="noopener noreferrer" className="social-icon">
+                  <Instagram fontSize="large" />
+                </a>
+                <a href="https://chat.whatsapp.com/IS3UUoZ1cqW9p6NLRg5QZB" target="_blank" rel="noopener noreferrer" className="social-icon">
+                  <WhatsApp fontSize="large" />
+                </a>
+                <a href="mailto:info@famnb.ca" target="_blank" rel="noopener noreferrer" className="social-icon">
+                  <Email fontSize="large" />
+                </a>
+              </div>
+            </Grid>
+            <Grid item xs={12} md={6} className="right-col " >
+              <h2 className="contactushead">Get In Touch</h2>
               <div className="contact-info">
-                <p>Feel free to reach out to us with any questions or concerns. We are here to help!</p>
+                <p>If you have any questions, comments, or concerns, please don't hesitate to contact us using the form below.</p>
               </div>
               
-              <form onSubmit={handleSubmit}>
+              <form onSubmit={handleSubmit} className="contact-form">
                 <TextField 
                   label="Name" 
                   variant="outlined" 
@@ -86,6 +124,7 @@ const ContactUs = () => {
                   name="name"
                   value={formData.name}
                   onChange={handleChange}
+                  className="contact-field"
                 />
                 <TextField 
                   label="Email" 
@@ -97,6 +136,7 @@ const ContactUs = () => {
                   name="email"
                   value={formData.email}
                   onChange={handleChange}
+                  className="contact-field"
                 />
                 <TextField 
                   label="Message" 
@@ -109,35 +149,25 @@ const ContactUs = () => {
                   name="message"
                   value={formData.message}
                   onChange={handleChange}
+                  className="contact-field"
                 />
                 <Button 
                   type="submit" 
                   variant="contained" 
                   color="primary" 
                   fullWidth
+                  className="submit-button"
                 >
                   Send Message
                 </Button>
+                <Snackbar open={openSnackbar} autoHideDuration={6000} onClose={handleCloseSnackbar}>
+                  <Alert onClose={handleCloseSnackbar} severity={alertSeverity}>
+                    {responseMessage}
+                  </Alert>
+                </Snackbar>
               </form>
-
-              {responseMessage && <p>{responseMessage}</p>}
-
-              <div className="social-links">
-                <a href="https://www.facebook.com/yourprofile" target="_blank" rel="noopener noreferrer" className="social-icon">
-                  <Facebook fontSize="large" />
-                </a>
-                <a href="https://www.instagram.com/yourprofile" target="_blank" rel="noopener noreferrer" className="social-icon">
-                  <Instagram fontSize="large" />
-                </a>
-                <a href="https://wa.me/yourwhatsapplink" target="_blank" rel="noopener noreferrer" className="social-icon">
-                  <WhatsApp fontSize="large" />
-                </a>
-                <a href="mailto:info@famnb.ca" target="_blank" rel="noopener noreferrer" className="social-icon">
-                  <Email fontSize="large" />
-                </a>
-              </div>
-            </Col>
-          </Row>
+            </Grid>
+          </Grid>
         </div>
       </Container>
       
