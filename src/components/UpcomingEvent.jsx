@@ -133,7 +133,7 @@ const UpcomingEvent = () => {
           <Typography variant="h6" color="text.primary" gutterBottom style={{ color: 'rgb(240, 21, 21)', textAlign: 'center' }}>
             {eventDate.format('MMMM D, YYYY')}
           </Typography>
-          <Box display="flex" justifyContent="center" marginTop={2}>
+          <Box display="flex" justifyContent="center" marginTop={0}>
             <Countdown date={eventDate.toDate()} renderer={countdownRenderer} />
           </Box>
           <Box display="flex" justifyContent="center" marginTop={2}>

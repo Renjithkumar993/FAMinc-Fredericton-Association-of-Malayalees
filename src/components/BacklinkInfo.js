@@ -27,15 +27,13 @@ const BacklinkInfo = () => {
     },
   ];
 
-  const { ref: firstCardRef, inView: firstCardInView } = useInView({ triggerOnce: false });
-  const { ref: secondCardRef, inView: secondCardInView } = useInView({ triggerOnce: false });
-  const { ref: thirdCardRef, inView: thirdCardInView } = useInView({ triggerOnce: false });
+  const { ref: firstCardRef, inView: firstCardInView } = useInView({ triggerOnce: true });
+  const { ref: secondCardRef, inView: secondCardInView } = useInView({ triggerOnce: true });
+  const { ref: thirdCardRef, inView: thirdCardInView } = useInView({ triggerOnce: true });
 
   return (
     <div className="component-container">
-   
-   
-   
+      <h1 className="title"><span className="hilite-color">Explore</span> Our Destinations</h1>
       <div className="locations">
         {locations.map((location, index) => {
           let ref = firstCardRef;
@@ -53,19 +51,27 @@ const BacklinkInfo = () => {
             <motion.div
               ref={ref}
               key={index}
-              initial={{ opacity: 0, scale: 0.6 }}
-              animate={inView ? { opacity: 1, scale: 1 } : {}}
-              transition={{ duration: 0.5, ease: "easeOut" }}
-              className="location-card shadow"
+              initial={{ opacity: 0, rotateY: -90 }}
+              animate={inView ? { opacity: 1, rotateY: 0 } : {}}
+              transition={{ duration: 1, ease: "easeOut" }}
+              className="location-card"
             >
-              <img src={location.image} alt={location.name} className="location-image" />
-              <div className="location-content">
-                <FontAwesomeIcon icon={faMapMarkedAlt} className="icon mb-3" />
-                <h2 className="mb-3">{location.name}</h2>
-                <p className="mb-4">{location.description}</p>
-                <a href={location.link} target="_blank" rel="noopener noreferrer" className="learn-more-btn">
-                  Learn More
-                </a>
+              <div className="location-card-inner">
+                <div className="location-card-front">
+                  <img src={location.image} alt={location.name} className="location-image" />
+                  <div className="location-content">
+                    <FontAwesomeIcon icon={faMapMarkedAlt} className="icon mb-3" />
+                    <h2 className="location-name">{location.name}</h2>
+                  </div>
+                </div>
+                <div className="location-card-back">
+                  <div className="location-content-back">
+                    <p className="location-description">{location.description}</p>
+                    <a href={location.link} target="_blank" rel="noopener noreferrer" className="learn-more-btn">
+                      Learn More
+                    </a>
+                  </div>
+                </div>
               </div>
             </motion.div>
           );

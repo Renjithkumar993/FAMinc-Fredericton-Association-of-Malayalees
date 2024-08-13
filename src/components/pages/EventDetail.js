@@ -8,6 +8,7 @@ import { FaMapMarkerAlt, FaCalendarAlt, FaClock, FaTicketAlt, FaInfoCircle, FaCl
 import { LazyLoadImage } from 'react-lazy-load-image-component';
 import 'react-lazy-load-image-component/src/effects/blur.css';
 import './EventDetail.css';
+import EventSponsors from './EventSponsors';
 
 const ModalComponent = lazy(() => import('../ModalComponent'));
 const Loading = lazy(() => import('../Loading'));
@@ -105,6 +106,7 @@ const EventDetail = () => {
         </Row>
       </Container>
       <EventModals event={event} modalType={modalType} handleModalClose={handleModalClose} />
+      <EventSponsors />
     </>
   );
 };
@@ -166,6 +168,7 @@ const EventActions = ({ event, handleModalShow }) => (
         />
       </Col>
     </Row>
+
   </div>
 );
 
@@ -192,6 +195,7 @@ const EventModals = ({ event, modalType, handleModalClose }) => (
         <ModalComponent open={modalType === 'performance'} handleClose={handleModalClose} iframeSrc={event.performanceIframe} />
       </Suspense>
     )}
+
   </>
 );
 
