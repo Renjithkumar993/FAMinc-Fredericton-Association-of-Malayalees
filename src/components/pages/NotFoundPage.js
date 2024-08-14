@@ -45,7 +45,7 @@ const HomeLink = styled(Link)`
   transition: background-color 0.3s ease;
 
   &:hover {
-    background-color: #0056b3;
+    background-color: #e84e2b;
   }
 `;
 
