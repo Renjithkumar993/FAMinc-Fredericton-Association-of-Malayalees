@@ -4,7 +4,7 @@ import { motion } from 'framer-motion';
 import styled from 'styled-components';
 
 
-const logo = `${process.env.PUBLIC_URL}/images/galleryimages/galleryimages.json`
+const logo = `${process.env.PUBLIC_URL}/images/logofam.avif`
 
 const NotFoundContainer = styled.div`
   display: flex;
@@ -13,7 +13,7 @@ const NotFoundContainer = styled.div`
   justify-content: center;
   height: 100vh;
   text-align: center;
-  background-color: #f7f7f7;
+  background-color: inherit;
   padding: 20px;
 `;
 
@@ -39,7 +39,7 @@ const HomeLink = styled(Link)`
   padding: 10px 20px;
   font-size: 1.2rem;
   color: #fff;
-  background-color: #007bff;
+  background-color: #ff6341;
   border-radius: 5px;
   text-decoration: none;
   transition: background-color 0.3s ease;

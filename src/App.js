@@ -8,10 +8,9 @@ import PageWithHelmet from './components/PageWithHelmet';
 import Loading from './components/Loading';
 import MainPage from './components/pages/MainPage';
 import { createGlobalStyle } from 'styled-components';
-import NotFoundPage from './components/pages/NotFoundPage';
+import NotFoundPage from './components/pages/NotFoundPage'; // Import NotFoundPage component
 
 const bgImage = `${process.env.PUBLIC_URL}/images/web_bg.png`;
-
 
 const AboutUsPage = lazy(() => import('./components/pages/AboutUsPage'));
 const EventSection = lazy(() => import('./components/pages/EventSection'));
@@ -55,10 +54,9 @@ class App extends React.Component {
     }
   `;
 
-    
     return (
       <div>
-            <GlobalStyle />
+        <GlobalStyle />
         <NavigationBar />
         <Suspense fallback={<Loading loading={true} />}>
           <Routes>
@@ -70,7 +68,8 @@ class App extends React.Component {
             <Route path="/joinus" element={<PageWithHelmet pageTitle="Join Us" Component={JoinPage} />} />
             <Route path="/gallery" element={<PageWithHelmet pageTitle="Gallery" Component={Gallery} />} />
             <Route path="/savewayanad" element={<PageWithHelmet pageTitle="Save Wayanad" Component={CampaignComponent} />} />
-            <Route path="*" element={<NotFoundPage />} /> 
+            <Route path="/404" element={<NotFoundPage />} />
+            <Route path="*" element={<NotFoundPage />} />
           </Routes>
         </Suspense>
         <Footer />

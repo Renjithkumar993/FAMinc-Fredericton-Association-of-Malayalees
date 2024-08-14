@@ -1,8 +1,4 @@
 /* General Styles */
-
-
-
-
 .about-us-section {
   color: black !important;
   padding: 0px 20px;
@@ -16,7 +12,7 @@
   transform: translateY(0);
 }
 
-/* Image Container Styles */
+
 .image-container {
   position: relative;
   width: 100%;
@@ -31,7 +27,7 @@
   display: block;
 }
 
-/* Text Styles */
+
 .about-text h1 {
   font-size: 3rem;
 color:black;
@@ -67,7 +63,6 @@ font-weight: bold;
   color: #fff;
 }
 
-/* Media Queries */
 @media (max-width: 768px) {
   .about-us-section {
     padding: 50px 10px;

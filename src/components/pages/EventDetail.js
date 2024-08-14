@@ -8,6 +8,7 @@ import { FaMapMarkerAlt, FaCalendarAlt, FaClock, FaTicketAlt, FaInfoCircle, FaCl
 import { LazyLoadImage } from 'react-lazy-load-image-component';
 import 'react-lazy-load-image-component/src/effects/blur.css';
 import './EventDetail.css';
+import { useNavigate } from 'react-router-dom';
 import EventSponsors from './EventSponsors';
 
 const ModalComponent = lazy(() => import('../ModalComponent'));
@@ -38,6 +39,7 @@ const fetchEventData = async (eventId, setEvent, setLoading, setError) => {
 
 const EventDetail = () => {
   const { eventId } = useParams();
+  const navigate = useNavigate(); // Initialize navigate
   const [event, setEvent] = useState(null);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
@@ -46,6 +48,12 @@ const EventDetail = () => {
   useEffect(() => {
     fetchEventData(eventId, setEvent, setLoading, setError);
   }, [eventId]);
+
+  useEffect(() => {
+    if (!loading && !error && !event) {
+      navigate('/404'); // Redirect to 404 if event is not found
+    }
+  }, [loading, error, event, navigate]);
 
   const handleModalClose = () => setModalType(null);
   const handleModalShow = (type) => setModalType(type);
@@ -59,12 +67,19 @@ const EventDetail = () => {
   }
 
   if (error) {
-    return <div>Error: {error}</div>;
+    return (
+      <div className="error-container">
+        <h2>Error loading event details</h2>
+        <p>{error}</p>
+        <Button onClick={() => window.location.href = "/events"}>Go Back to Events</Button>
+      </div>
+    );
   }
 
   if (!event) {
-    return <div>Event not found</div>;
+    return null; // This case will never be hit because of the useEffect above
   }
+
 
   const eventClosed = new Date(event.date) < new Date();
   const eventDate = moment.tz(event.date, 'UTC');
