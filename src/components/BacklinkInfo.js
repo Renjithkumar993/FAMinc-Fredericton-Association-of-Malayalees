@@ -27,9 +27,9 @@ const BacklinkInfo = () => {
     },
   ];
 
-  const { ref: firstCardRef, inView: firstCardInView } = useInView({ triggerOnce: true });
-  const { ref: secondCardRef, inView: secondCardInView } = useInView({ triggerOnce: true });
-  const { ref: thirdCardRef, inView: thirdCardInView } = useInView({ triggerOnce: true });
+  const { ref: firstCardRef, inView: firstCardInView } = useInView({ triggerOnce: false });
+  const { ref: secondCardRef, inView: secondCardInView } = useInView({ triggerOnce: false });
+  const { ref: thirdCardRef, inView: thirdCardInView } = useInView({ triggerOnce: false });
 
   return (
     <div className="component-container">

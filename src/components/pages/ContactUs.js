@@ -89,7 +89,7 @@ const ContactUs = () => {
       <Container>
         <Breadcrumbs />
         <div className="contact-us-container">
-        <Grid container spacing={4} justifyContent="center" alignItems="center">
+        <Grid container spacing={6} justifyContent="center" alignItems="center">
 
             <Grid item xs={12} md={6} className="left-col">
               <img src={logofam} alt="Logo" className="logo-image" />
