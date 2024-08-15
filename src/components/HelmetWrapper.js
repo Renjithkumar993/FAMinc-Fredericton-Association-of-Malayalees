@@ -24,9 +24,11 @@ const HelmetWrapper = ({ pageTitle, description, structuredData }) => {
 
       <meta name="keywords" content="malayalees in new brunswick, malayalees in fredericton, kerala new brunswick, kerala fredericton, indians in fredericton, indians in new brunswick, indian community in fredericton, indian community in new brunswick, fredericton association of malayalees, FAM, kerala canada, fredericton kerala association, Malayalees in Canada" />
 
-      <script type="application/ld+json">
-        {JSON.stringify(structuredData)}
-      </script>
+      {structuredData && (
+        <script type="application/ld+json">
+          {JSON.stringify(structuredData)}
+        </script>
+      )}
     </Helmet>
   );
 };
