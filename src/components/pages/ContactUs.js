@@ -93,7 +93,7 @@ const ContactUs = () => {
                 </IconButton>
               </Tooltip>
               <Tooltip title="WhatsApp">
-                <IconButton component="a" href="https://chat.whatsapp.com/IS3UUoZ1cqW9p6NLRg5QZB" target="_blank" rel="noopener noreferrer" sx={{ color: '#25D366', '&:hover': { color: '#128C7E' } }}>
+                <IconButton component="a" href="https://chat.whatsapp.com/ERIMx8TBAMdJ75PdTnYeOu" target="_blank" rel="noopener noreferrer" sx={{ color: '#25D366', '&:hover': { color: '#128C7E' } }}>
                   <WhatsApp fontSize="large" />
                 </IconButton>
               </Tooltip>

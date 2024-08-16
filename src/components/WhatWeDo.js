@@ -30,7 +30,7 @@ const initialCardData = [
     title: "Join WhatsApp Group",
     description: "Join our WhatsApp group for instant updates.",
     icon: <FaWhatsapp />,
-    link: "https://chat.whatsapp.com/IS3UUoZ1cqW9p6NLRg5QZB",
+    link: "https://chat.whatsapp.com/ERIMx8TBAMdJ75PdTnYeOu",
     color: '#25D366'
   }
 ];
