@@ -1,17 +1,11 @@
 import React, { useState, useEffect } from 'react';
-import { Container, Row, Col, Button } from 'react-bootstrap';
-import { Zoom, Slide } from 'react-awesome-reveal';
-import { useInView } from 'react-intersection-observer';
+import { Container, Grid, Button, Typography } from '@mui/material';
+import { Slide, Zoom } from 'react-awesome-reveal';
 import { useNavigate } from 'react-router-dom';
-import './AboutUs.css';
+import './AboutUs.css'; // Keep your existing CSS file
 import Loading from './Loading'; // Ensure this is the correct path to your Loading component
 
 const AboutUs = () => {
-  const { ref: aboutRef, inView: aboutInView } = useInView({
-    triggerOnce: false, // Animation triggers every time in view
-    threshold: 0.1,
-  });
-
   const [data, setData] = useState(null);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
@@ -48,39 +42,40 @@ const AboutUs = () => {
   const aboutImage = `${process.env.PUBLIC_URL}/images/heroimages/Aboutus-hero.png`;
 
   return (
-    <section ref={aboutRef} className={`about-us-section ${aboutInView ? 'animate' : ''}`} id="about">
-      <Container>
-        <Row className="align-items-center">
-          <Col xs={12} md={6} className="order-1 order-md-2">
-            <div className="about-text">
-              <Zoom delay={0.2} triggerOnce={false}>
-                <h1><span className="hilite-color">Malayalee</span> Community</h1>
-              </Zoom>
-              <Zoom delay={0.4} triggerOnce={false}>
-                <h2>Celebrating Kerala Culture in Fredericton, New Brunswick, Canada</h2>
-              </Zoom>
-              {data.about.description.map((paragraph, index) => (
-                <Zoom key={index} delay={0.6 + index * 0.2} triggerOnce={false}>
-                  <p>{paragraph}</p>
-                </Zoom>
-              ))}
-              <Zoom delay={0.8 + data.about.description.length * 0.2} triggerOnce={false}>
+    <section className="about-us-section" id="about">
+      <Container maxWidth="lg">
+        <Grid container alignItems="center" spacing={4}>
+          <Grid item xs={12} md={6} className="about-text-grid">
+            <Slide direction="left" duration={700} triggerOnce={false}>
+              <div className="about-text">
+                <Typography variant="h3" className="highlight">
+                  <span className="hilite-color">Malayalee</span> Community
+                </Typography>
+                <Typography variant="h5" className="subtitle">
+                  Celebrating Kerala Culture in Fredericton, New Brunswick, Canada
+                </Typography>
+                {data.about.description.map((paragraph, index) => (
+                  <Typography key={index} variant="body1" className="paragraph">
+                    {paragraph}
+                  </Typography>
+                ))}
                 <Button
-                  variant="outline-dark"
+                  variant="outlined"
+                  
                   className="custom-button"
                   onClick={() => navigate('/contactus')}
                 >
                   Get in touch
                 </Button>
-              </Zoom>
-            </div>
-          </Col>
-          <Col xs={12} md={6} className="order-2 order-md-1">
-            <Slide direction="right" triggerOnce={false}>
-              <img src={aboutImage} alt="Mission and Vision" className="about-image" />
+              </div>
             </Slide>
-          </Col>
-        </Row>
+          </Grid>
+          <Grid item xs={12} md={6}>
+            <Zoom duration={700} triggerOnce={false}>
+              <img src={aboutImage} alt="Mission and Vision" className="about-image" />
+            </Zoom>
+          </Grid>
+        </Grid>
       </Container>
     </section>
   );

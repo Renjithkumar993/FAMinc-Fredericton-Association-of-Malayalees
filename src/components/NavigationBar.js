@@ -16,7 +16,7 @@ import {
   Fab,
 } from '@mui/material';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faHome, faInfoCircle, faCalendarAlt, faEnvelope, faBars, faImages, faUsers, faArrowUp } from '@fortawesome/free-solid-svg-icons';
+import { faHome, faInfoCircle, faCalendarAlt, faEnvelope, faBars, faImages, faUsers, faArrowUp, faLink } from '@fortawesome/free-solid-svg-icons';
 import './NavigationBar.css';
 
 const pages = [
@@ -24,6 +24,7 @@ const pages = [
   { name: 'About Us', icon: faInfoCircle, path: '/aboutus' },
   { name: 'Events', icon: faCalendarAlt, path: '/events' },
   { name: 'Gallery', icon: faImages, path: '/gallery' },
+  { name: 'Useful Links', icon: faLink, path: '/usefullinks' },
   { name: 'Contact Us', icon: faEnvelope, path: '/contactus' },
 ];
 

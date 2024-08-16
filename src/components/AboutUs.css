@@ -12,20 +12,16 @@
   font-weight: bold;
 }
 
-.about-text h1 {
-  font-size: 3rem;
-  margin-bottom: 20px;
+.highlight {
   font-weight: bold;
 }
 
-.about-text h2 {
-  font-size: 2rem;
+.subtitle {
   margin-bottom: 20px;
   color: black;
 }
 
-.about-text p {
-  font-size: 1.2rem;
+.paragraph {
   margin-bottom: 20px;
   line-height: 1.6;
   color: black;
@@ -36,8 +32,8 @@
   padding: 10px 30px;
   border-radius: 5px;
   border: 2px solid #ff6341;
-  font-size: 1.2rem;
   transition: background-color 0.3s ease, color 0.3s ease;
+  color: #ff6341;
 }
 
 .custom-button:hover {
@@ -48,8 +44,7 @@
 .about-image {
   width: 100%;
   height: auto;
-  
-  
+  transition: transform 0.5s ease;
 }
 
 @media (max-width: 768px) {
@@ -57,15 +52,15 @@
     padding: 50px 10px;
   }
 
-  .about-text h1 {
+  .highlight {
     font-size: 2.5rem;
   }
 
-  .about-text h2 {
+  .subtitle {
     font-size: 1.5rem;
   }
 
-  .about-text p {
+  .paragraph {
     font-size: 1rem;
   }
 }

@@ -1,13 +1,12 @@
 import React, { useEffect, useState } from 'react';
-import { Container, Row, Col } from 'react-bootstrap';
-import 'bootstrap/dist/css/bootstrap.min.css';
-import './AboutUsPage.css';
+import { Container, Grid, Typography, Box, List, ListItem, ListItemIcon, ListItemText } from '@mui/material';
+import { Fade, Slide, Zoom } from 'react-awesome-reveal';
+import CheckCircleIcon from '@mui/icons-material/CheckCircle';
 import FullWidthImage from '../FullWidthImage';
 import Breadcrumbs from '../Breadcrumbs';
 import HelmetWrapper from '../HelmetWrapper';
 import JoinComponent from '../JoinComponent';
-import Loading from '../Loading'; // Ensure this is the correct path to your Loading component
-import { motion } from 'framer-motion';
+import Loading from '../Loading';
 
 const AboutUsPage = () => {
   const [aboutData, setAboutData] = useState(null);
@@ -48,21 +47,11 @@ const AboutUsPage = () => {
   }
 
   if (error) {
-    return <div>{error}</div>;
+    return <Typography variant="h6" color="error">{error}</Typography>;
   }
 
   const aboutImage1 = `${process.env.PUBLIC_URL}/images/fredericton/Fredericton-image-1.jpg`;
   const aboutImage2 = `${process.env.PUBLIC_URL}/images/fredericton/Fredericton-image-2.jpg`;
-
-  const fadeInUp = {
-    hidden: { opacity: 0, y: 20 },
-    visible: { opacity: 1, y: 0 }
-  };
-
-  const fadeIn = {
-    hidden: { opacity: 0 },
-    visible: { opacity: 1 }
-  };
 
   return (
     <>
@@ -70,122 +59,118 @@ const AboutUsPage = () => {
         pageTitle="About Us - Fredericton Association of Malayalees" 
         description="Learn more about the Fredericton Association of Malayalees." 
       />
-      <div className="about-us-page">
-        <Container className="about-us-content">
+      <Box sx={{ py: 6, }}>
+        <Container>
           <Breadcrumbs />
-          <Row className="mb-1">
-            <Col>
-              <motion.h1 
-                className="about-heading"
-                initial="hidden"
-                animate="visible"
-                variants={fadeInUp}
-                transition={{ duration: 0.6 }}
-              >
-                About Fredericton Association of Malayalees
-              </motion.h1>
-            </Col>
-          </Row>
-          <Row className='align-items-center'>
-            <Col md={6}>
-              <motion.div 
-                className="about-description"
-                initial="hidden"
-                animate="visible"
-                variants={fadeInUp}
-                transition={{ duration: 0.6 }}
-              >
-                {aboutData.about.description.map((paragraph, index) => (
-                  <p key={index}>{paragraph}</p>
-                ))}
-              </motion.div>
-            </Col>
-            <Col md={6}>
-              <motion.div 
-                className="image-container"
-                initial="hidden"
-                animate="visible"
-                variants={fadeIn}
-                transition={{ duration: 0.6 }}
-              >
-                <img src={aboutImage1} alt="About Us" className="about-image" />
-              </motion.div>
-            </Col>
-          </Row>
-          <Row className="statistics mt-4">
-            {aboutData.about.statistics.map((stat, index) => (
-              <Col md={6} key={index}>
-                <motion.div 
-                  className="stat-item"
-                  initial="hidden"
-                  animate="visible"
-                  variants={fadeInUp}
-                  transition={{ duration: 0.6 }}
-                >
-                  <ul>
-                    {stat.list.map((item, idx) => (
-                      <li key={idx}>{item}</li>
-                    ))}
-                  </ul>
-                </motion.div>
-              </Col>
-            ))}
-          </Row>
-          <Row className="mt-5 align-items-center">
-            <Col md={6}>
-              <motion.div 
-                className="image-container"
-                initial="hidden"
-                animate="visible"
-                variants={fadeIn}
-                transition={{ duration: 0.6 }}
-              >
-                <img src={aboutImage2} alt="Activities" className="about-image" />
-              </motion.div>
-            </Col>
-            <Col md={6}>
-              <motion.div 
-                className="mission-description"
-                initial="hidden"
-                animate="visible"
-                variants={fadeInUp}
-                transition={{ duration: 0.6 }}
-              >
-                <h2>Fredericton Association of Malayalees</h2>
-                {aboutData.about.additionalSection.paragraphs.map((paragraph, index) => (
-                  <p key={index}>{paragraph}</p>
-                ))}
-              </motion.div>
-            </Col>
-          </Row>
-          <Row className="mt-5">
-            <Col md={6}>
-              <motion.div 
-                className="mission-vision"
-                initial="hidden"
-                animate="visible"
-                variants={fadeInUp}
-                transition={{ duration: 0.6 }}
-              >
-                <h2>Our Mission</h2>
-                <p>{missionVisionData.missionVision.mission}</p>
-              </motion.div>
-            </Col>
-            <Col md={6}>
-              <motion.div 
-                className="mission-vision"
-                initial="hidden"
-                animate="visible"
-                variants={fadeInUp}
-                transition={{ duration: 0.6 }}
-              >
-                <h2>Our Vision</h2>
-                <p>{missionVisionData.missionVision.vision}</p>
-              </motion.div>
-            </Col>
-          </Row>
+          <Grid container spacing={4} alignItems="center">
+            <Grid item xs={12}>
+              <Fade triggerOnce={false} direction="down">
+                <Typography variant="h4" fontWeight="bold" textAlign="center" gutterBottom>
+                  <Box component="span">
+                    About
+                  </Box>{' '}
+                  <Box component="span" sx={{ color: '#ff6341' }}>
+                    Fredericton Association of Malayalees
+                  </Box>
+                </Typography>
+              </Fade>
+            </Grid>
+
+            <Grid item xs={12} md={6}>
+              <Fade triggerOnce={false} direction="right">
+                <Box>
+                  {aboutData.about.description.map((paragraph, index) => (
+                    <Typography key={index} variant="body1" paragraph sx={{  lineHeight: 1.8 }}>
+                      {paragraph}
+                    </Typography>
+                  ))}
+                </Box>
+              </Fade>
+            </Grid>
+
+            <Grid item xs={12} md={6}>
+              <Zoom triggerOnce={false} duration={1000}>
+                <Box sx={{ display: 'flex', justifyContent: 'center', alignItems: 'center', overflow: 'hidden', borderRadius: 2, boxShadow: 3 }}>
+                  <img src={aboutImage1} alt="About Us" style={{ width: '100%', height: 'auto', borderRadius: '8px' }} />
+                </Box>
+              </Zoom>
+            </Grid>
+
+            <Grid item xs={12}>
+              <Slide triggerOnce={false} direction="left" duration={1000}>
+                <Grid container spacing={2}>
+                  {aboutData.about.statistics.map((stat, index) => (
+                    <Grid item xs={12} md={6} key={index}>
+                      <List>
+                        {stat.list.map((item, idx) => (
+                          <ListItem key={idx} sx={{ paddingLeft: 0 }}>
+                            <ListItemIcon sx={{ minWidth: '40px' }}>
+                              <CheckCircleIcon sx={{ color: '#ff6341', fontSize: '1.5rem' }} />
+                            </ListItemIcon>
+                            <ListItemText
+                              primary={item}
+                              primaryTypographyProps={{ fontSize: '1.2rem', fontWeight: 'medium', letterSpacing: '0.5px' }}
+                            />
+                          </ListItem>
+                        ))}
+                      </List>
+                    </Grid>
+                  ))}
+                </Grid>
+              </Slide>
+            </Grid>
+
+            <Grid item xs={12} md={6}>
+              <Zoom triggerOnce={false} duration={1000}>
+                <Box sx={{ display: 'flex', justifyContent: 'center', alignItems: 'center', overflow: 'hidden', borderRadius: 2, boxShadow: 3 }}>
+                  <img src={aboutImage2} alt="Activities" style={{ width: '100%', height: 'auto', borderRadius: '8px' }} />
+                </Box>
+              </Zoom>
+            </Grid>
+
+            <Grid item xs={12} md={6}>
+              <Fade triggerOnce={false} direction="left">
+                <Box>
+                  <Typography variant="h4" gutterBottom sx={{ color: '#ff6341', fontWeight: 'bold' }}>
+                    Fredericton Association of Malayalees
+                  </Typography>
+                  {aboutData.about.additionalSection.paragraphs.map((paragraph, index) => (
+                    <Typography key={index} variant="body1" paragraph sx={{ lineHeight: 1.8 }}>
+                      {paragraph}
+                    </Typography>
+                  ))}
+                </Box>
+              </Fade>
+            </Grid>
+
+            <Grid item xs={12} md={6}>
+              <Slide triggerOnce={false} direction="left" duration={1000}>
+                <Box>
+                  <Typography variant="h4" gutterBottom sx={{ color: '#ff6341', fontWeight: 'bold' }}>
+                    Our Mission
+                  </Typography>
+                  <Typography variant="body1" sx={{  lineHeight: 1.8 }}>
+                    {missionVisionData.missionVision.mission}
+                  </Typography>
+                </Box>
+              </Slide>
+            </Grid>
+
+            <Grid item xs={12} md={6}>
+              <Slide triggerOnce={false} direction="right" duration={1000}>
+                <Box>
+                  <Typography variant="h4" gutterBottom sx={{ color: '#ff6341', fontWeight: 'bold' }}>
+                    Our Vision
+                  </Typography>
+                  <Typography variant="body1" sx={{ lineHeight: 1.8 }}>
+                    {missionVisionData.missionVision.vision}
+                  </Typography>
+                </Box>
+              </Slide>
+            </Grid>
+          </Grid>
         </Container>
-      </div>
+      </Box>
       <JoinComponent />
       <FullWidthImage />
     </>

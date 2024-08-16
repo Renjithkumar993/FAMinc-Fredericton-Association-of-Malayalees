@@ -19,6 +19,7 @@ const EventDetail = lazy(() => import('./components/pages/EventDetail'));
 const JoinPage = lazy(() => import('./components/pages/JoinPage'));
 const Gallery = lazy(() => import('./components/pages/Gallery'));
 const CampaignComponent = lazy(() => import('./components/pages/CampaignComponent'));
+const UsefulLinks = lazy(() => import("./components/UsefulLinks"))
 
 class App extends React.Component {
   constructor(props) {
@@ -66,6 +67,7 @@ class App extends React.Component {
             <Route path="/:eventId" element={<PageWithHelmet Component={EventDetail} />} />
             <Route path="/contactus" element={<PageWithHelmet pageTitle="Contact Us" Component={ContactUs} />} />
             <Route path="/joinus" element={<PageWithHelmet pageTitle="Join Us" Component={JoinPage} />} />
+            <Route path="/usefullinks" element={<PageWithHelmet pageTitle="Useful Links" Component={UsefulLinks} />} />
             <Route path="/gallery" element={<PageWithHelmet pageTitle="Gallery" Component={Gallery} />} />
             <Route path="/savewayanad" element={<PageWithHelmet pageTitle="Save Wayanad" Component={CampaignComponent} />} />
             <Route path="/404" element={<NotFoundPage />} />

@@ -1,125 +1,82 @@
 import React, { useState, useEffect } from 'react';
-import { Container, Row, Col, Button } from 'react-bootstrap';
-import { useInView } from 'react-intersection-observer';
-import CountUp from 'react-countup';
-import './AdvertisingComponent.css';
-import '@fortawesome/fontawesome-free/css/all.min.css';
+import { Container, Grid, Box, Typography, Button, Card, CardContent } from '@mui/material';
+import { Slide, Zoom, Reveal } from 'react-awesome-reveal';
+import PhoneIcon from '@mui/icons-material/Phone';
 
 const AdvertisingComponent = () => {
     const [adData, setAdData] = useState(null);
-    const [clickCount, setClickCount] = useState(0);
     const adDataUrl = `${process.env.PUBLIC_URL}/config/adData.json`;
-    const [startCount, setStartCount] = useState(false);
-
-    const { ref, inView } = useInView({
-        triggerOnce: false,
-        threshold: 0.1,
-    });
 
     useEffect(() => {
         const fetchAdData = async () => {
             try {
                 const response = await fetch(adDataUrl);
-                if (!response.ok) {
-                    throw new Error('Network response was not ok');
-                }
+                if (!response.ok) throw new Error('Network response was not ok');
                 const data = await response.json();
                 setAdData(data);
             } catch (error) {
                 console.error('Error fetching ad data:', error);
             }
         };
-
         fetchAdData();
-
-        const storedClickCount = localStorage.getItem('clickCount');
-        if (storedClickCount) {
-            setClickCount(parseInt(storedClickCount, 10));
-        }
     }, [adDataUrl]);
 
-    useEffect(() => {
-        if (inView) {
-            setStartCount(true);
-        } else {
-            setStartCount(false);
-        }
-    }, [inView]);
-
-    const handleButtonClick = () => {
-        const newClickCount = clickCount + 1;
-        setClickCount(newClickCount);
-        localStorage.setItem('clickCount', newClickCount);
-        console.log('New click count:', newClickCount);
-
-    
-        fetch('http://famnb.ca/update_click_count.php', {
-            method: 'POST',
-            headers: {
-                'Content-Type': 'application/json',
-            },
-            body: JSON.stringify({}),
-        })
-        .then(response => response.json())
-        .then(data => {
-            if (data.success) {
-                console.log('Click count updated on the server:', data.newCount);
-            } else {
-                console.error('Failed to update click count on the server:', data.message);
-            }
-        })
-        .catch(error => {
-            console.error('Error:', error);
-        });
-    };
-
-    if (!adData) {
-        return <div>Loading ad...</div>;
-    }
+    if (!adData) return <Typography>Loading ad...</Typography>;
 
     return (
-        <Container className="advertising-container align-items-center" ref={ref}>
-            <Row className="align-items-center justify-content-center text-center">
-                <Col xs={12} className="ad-label">
-                    Our Sponsor
-                </Col>
-                <Col xs="auto" className="image-col">
-                    <img src={`${process.env.PUBLIC_URL}/images/sponsors/khama.jpg`} alt="Sponsor Image" className="sponsor-image" />
-                </Col>
-                <Col xs="auto" className="image-col">
-                    <a href={adData.linkUrl} target="_blank" rel="noopener noreferrer">
-                        <img src={adData.imageUrl} alt={adData.altText} className="advertising-image img-fluid" />
-                    </a>
-                </Col>
-                <Col xs="auto" className="text-col">
-                    <div className="advertising-text">
-                        <h4>{adData.title}</h4>
-                        <div className="stats-container">
-                            {startCount && (
-                                <div className="countup">
-                                    <i className="fas fa-smile"></i>
-                                    <CountUp start={0} end={800} duration={3.5} />
-                                    &nbsp;+ Happy Clients
-                                </div>
-                            )}
-                        </div>
-                    </div>
-                </Col>
-            </Row>
-            <Row className="align-items-center justify-content-center text-center mt-1">
-                <Col xs="auto" className="button-col">
-                    <Button
-                        href={adData.linkUrl}
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        size="sm"
-                        className="adv-button"
-                        onClick={handleButtonClick}
-                    >
-                        Learn More
-                    </Button>
-                </Col>
-            </Row>
+        <Container sx={{ py: 4 }}>
+            <Card sx={{ borderRadius: 2, boxShadow: 3, overflow: 'hidden', maxWidth: 800, mx: 'auto', backgroundColor: '#f5f5f5' }}>
+                <CardContent sx={{ textAlign: 'center', py: 2 }}>
+                    <Reveal triggerOnce={false}>
+                        <Typography variant="subtitle2" color="textSecondary" sx={{ fontWeight: 'bold', letterSpacing: 1, textTransform: 'uppercase', mb: 1 }}>
+                            Our Sponsor
+                        </Typography>
+                    </Reveal>
+                    <Grid container spacing={2} alignItems="center">
+                        <Grid item xs={12} md={4}>
+                            <Slide direction="left" triggerOnce={false}>
+                                <Box
+                                    component="img"
+                                    src={adData.smallImageUrl}
+                                    alt="Small Sponsor Image"
+                                    sx={{ height: 80, width: 'auto', display: 'block', mx: 'auto' }}
+                                />
+                            </Slide>
+                        </Grid>
+                        <Grid item xs={12} md={8}>
+                            <Zoom triggerOnce={false}>
+                                <Box
+                                    component="img"
+                                    src={adData.imageUrl}
+                                    alt={adData.altText}
+                                    sx={{width: '100%', display: 'block', mx: 'auto' }}
+                                />
+                            </Zoom>
+                        </Grid>
+                    </Grid>
+                    <Typography variant="body2" color="textSecondary" sx={{ mt: 2 }}>
+                        {adData.title}
+                    </Typography>
+                    <Box sx={{ mt: 3, display: 'flex', justifyContent: 'center', gap: 2 }}>
+                        <Button
+                            variant="contained"
+                            href={adData.linkUrl}
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            sx={{ px: 4, borderRadius: 20, backgroundColor: '#ff6341', '&:hover': { backgroundColor: '#ff4500' } }}
+                        >
+                            Learn More
+                        </Button>
+                        <Button
+                            variant="outlined"
+                            href={`tel:${adData.phoneNumber}`}
+                            sx={{ px: 2, borderRadius: 20, minWidth: '50px', color: '#ff6341', borderColor: '#ff6341', '&:hover': { backgroundColor: '#ffe6e0' } }}
+                        >
+                            <PhoneIcon />
+                        </Button>
+                    </Box>
+                </CardContent>
+            </Card>
         </Container>
     );
 };
