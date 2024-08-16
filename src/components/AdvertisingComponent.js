@@ -27,6 +27,28 @@ const AdvertisingComponent = () => {
         fetchAdData();
     }, [adDataUrl]);
 
+    const handleButtonClick = async () => {
+        try {
+            const response = await fetch('https://famnb.ca/update_click_count.php', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                }
+            });
+
+            if (!response.ok) throw new Error('Network response was not ok');
+            const data = await response.json();
+
+            if (data.success) {
+                console.log(`New count: ${data.newCount}`);
+            } else {
+                console.error('Error updating count:', data.message);
+            }
+        } catch (error) {
+            console.error('Error handling button click:', error);
+        }
+    };
+
     if (!adData) return <Typography>Loading ad...</Typography>;
 
     return (
@@ -76,6 +98,7 @@ const AdvertisingComponent = () => {
                                 href={adData.linkUrl}
                                 target="_blank"
                                 rel="noopener noreferrer"
+                                onClick={handleButtonClick}
                                 sx={{ px: 4, borderRadius: 20, backgroundColor: '#ff6341', '&:hover': { backgroundColor: '#ff4500' } }}
                             >
                                 Learn More
@@ -83,6 +106,7 @@ const AdvertisingComponent = () => {
                             <Button
                                 variant="outlined"
                                 href={`tel:${adData.phoneNumber}`}
+                                onClick={handleButtonClick}
                                 sx={{ px: 2, borderRadius: 20, minWidth: '50px', color: '#ff6341', borderColor: '#ff6341', '&:hover': { backgroundColor: '#ffe6e0' } }}
                             >
                                 <PhoneIcon />

@@ -1,0 +1,103 @@
+.advertising-container {
+    max-width: 900px;
+    margin: 20px auto;
+    padding: 0 15px;
+}
+
+.advertising-card {
+    border-radius: 15px;
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.1);
+    overflow: hidden;
+    background: linear-gradient(135deg, #ffffff, #f7f7f7);
+    padding: 20px;
+}
+
+.ad-label h3 {
+    font-size: 1.5rem;
+    color: #333;
+    margin-bottom: 15px;
+    font-weight: bold;
+    text-transform: uppercase;
+}
+
+.image-col {
+    margin-bottom: 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.advertising-image,
+.sponsor-image {
+    max-width: 240px;
+    height: auto;
+    border-radius: 10px;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
+}
+
+.advertising-image:hover,
+.sponsor-image:hover {
+    transform: scale(1.1);
+}
+
+.advertising-text h4 {
+    margin: 0;
+    font-size: 1.3rem;
+    color: #555;
+}
+
+.countup {
+    font-size: 1.1rem;
+    font-weight: bold;
+    color: #ff6341;
+    display: flex;
+    align-items: center;
+    margin-top: 10px;
+}
+
+.countup i {
+    margin-right: 8px;
+}
+
+.adv-button {
+    background-color: #ff6341;
+    border: none;
+    padding: 12px 24px;
+    border-radius: 25px;
+    font-size: 1rem;
+    font-weight: bold;
+    color: #fff;
+    margin: 10px;
+    transition: background-color 0.3s ease, transform 0.3s ease;
+}
+
+.adv-button:hover {
+    background-color: #ff4500;
+    transform: translateY(-3px);
+}
+
+@media (max-width: 576px) {
+    .advertising-card {
+        padding: 20px;
+        border-radius: 10px;
+    }
+
+    .advertising-image,
+    .sponsor-image {
+        max-width: 180px;
+    }
+
+    .advertising-text h4 {
+        font-size: 1.1rem;
+    }
+
+    .countup {
+        font-size: 1rem;
+    }
+
+    .adv-button {
+        padding: 10px 20px;
+        font-size: 0.9rem;
+    }
+}
