@@ -17,14 +17,14 @@ const JoinComponent = () => {
       sx={{
         background: 'linear-gradient(135deg, #FFD700 0%, #FF6347 100%)',
         color: '#fff',
-        padding: { xs: '40px 30px', md: '60px 80px' },
+        padding: { xs: '30px 20px', sm: '40px 30px', md: '60px 80px' },
         borderRadius: '30px',
         boxShadow: '0 20px 40px rgba(0, 0, 0, 0.3)',
         textAlign: 'center',
-        maxWidth: '1200px',
+        maxWidth: { xs: '90%', sm: '85%', md: '1200px' },
         margin: 'auto',
         overflow: 'hidden',
-        marginTop:"30px"
+        marginTop: '30px',
       }}
     >
       <Box sx={{ maxWidth: '800px', margin: 'auto', mb: 4 }}>
@@ -66,11 +66,11 @@ const JoinComponent = () => {
           sx={{
             backgroundColor: '#e64a19',
             color: '#ffffff',
-            padding: { xs: '10px 20px', md: '12px 24px' },
+            padding: { xs: '8px 16px', sm: '10px 20px', md: '12px 24px' },
             borderRadius: '40px',
             textTransform: 'none',
             fontWeight: 'bold',
-            fontSize: { xs: '0.9rem', md: '1rem' },
+            fontSize: { xs: '0.85rem', sm: '0.9rem', md: '1rem' },
             boxShadow: '0 10px 20px rgba(0, 0, 0, 0.2)',
             transition: 'all 0.3s ease-in-out',
             '&:hover': {
