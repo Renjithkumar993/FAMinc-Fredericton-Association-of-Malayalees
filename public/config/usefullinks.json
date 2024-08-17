@@ -1,0 +1,117 @@
+{
+    "healthLinks": [
+      {
+        "title": "NB Medicare",
+        "description": "Apply for your Medicare card.",
+        "link": "https://www2.gnb.ca/content/gnb/en/departments/health/Medicare.html"
+      },
+      {
+        "title": "Fredericton Downtown Community Health Center",
+        "description": "Request health services at the Downtown Community Health Center.",
+        "link": "https://nb.skipthewaitingroom.com/walk-in-clinic/fredericton/horizon-clinics/fredericton-downtown-community-health-center-request-for-service"
+      },
+      {
+        "title": "EvisitNB with Maple",
+        "description": "Virtual healthcare visits through EvisitNB.",
+        "link": "https://www.getmaple.ca/evisitnb/"
+      },
+      {
+        "title": "Walk-in Clinic Locations",
+        "description": "Walk-in clinics provide care for New Brunswick patients with non-urgent medical problems.",
+        "link": "https://www.nbms.nb.ca/walk-in-clinics/"
+      }
+    ],
+    "employmentLinks": [
+
+        {
+            "title": "WorkingNB",
+            "description": "Access resources and support for finding employment in Fredericton New Brunswick.",
+            "link": "https://www.workingnb.ca/"
+          },
+      {
+        "title": "Government of Canada Jobs",
+        "link": "https://emploisfp-psjobs.cfp-psc.gc.ca/psrs-srfp/applicant/page2440?fromMenu=true&toggleLanguage=en"
+      },
+      {
+        "title": "GC Digital Talent",
+        "link": "https://talent.canada.ca/en/"
+      },
+      {
+        "title": "NB Jobs",
+        "link": "https://www.nbjobs.ca/"
+      },
+      {
+        "title": "GNB Jobs",
+        "link": "https://www2.gnb.ca/content/gnb/en/gateways/employment.html"
+      },
+      {
+        "title": "Indeed Jobs",
+        "link": "https://ca.indeed.com/jobs?q=&l=Fredericton%2C+NB&from=searchOnDesktopSerp&vjk=0f814476e27b78fd"
+      },
+      {
+        "title": "Monster Jobs",
+        "link": "https://www.monster.ca/jobs/search?q=&where=fredericton&page=1&so=p.s.sh"
+      },
+      {
+        "title": "CareerBeacon",
+        "link": "https://www.careerbeacon.com/en/search/jobs-in-Fredericton_New-Brunswick"
+      }
+      
+      
+      
+      
+      
+    ],
+    "immigrantLinks": [
+      {
+        "title": "For New Immigrants",
+        "description": "For newcomers to Canada.",
+        "icon": "Groups",
+        "link": "https://www.canada.ca/en/immigration-refugees-citizenship/services/new-immigrants.html"
+      },
+      {
+        "title": "MCAF Newcomer Services",
+        "description": "Explore various services provided by MCAF for newcomers to New Brunswick.",
+        "link": "https://mcaf.nb.ca/en/newcomer/"
+      }
+    ],
+    "links": [
+        {
+            "title": "Child Care",
+            "description": "Learn more about ChildCare in Fredericton.",
+            "icon": "ChildCare",
+            "link": "https://www.nbed.nb.ca/parentportal/en/search/elc/#lat=46.52936210750518,long=-66.17836761,zoom=7,opt=di:;a2:0;a25:0;as:0;oa:0;d:0;tc:0;th:0;le:0;lf:0;lb:0;po:0;on:||"
+          },
+      {
+        "title": "New Brunswick Immigration Program Streams",
+        "description": "Learn about the NBPNP process.",
+        "icon": "LocationCity",
+        "link": "https://www2.gnb.ca/content/gnb/en/corporate/promo/immigration/immigrating-to-nb/nb-immigration-program-streams.html"
+      },
+      {
+        "title": "Tax Filing",
+        "description": "Personal income tax filing guidelines.",
+        "icon": "AccountBalance",
+        "link": "https://www.canada.ca/en/services/taxes/income-tax/personal-income-tax.html"
+      },
+     
+     
+     
+     
+     
+     
+      {
+        "title": "Social Insurance Number",
+        "description": "Submit your SIN application.",
+        "icon": "CreditCard",
+        "link": "https://www.canada.ca/en/employment-social-development/services/sin/apply.html"
+      },
+      {
+        "title": "Social Development Canada",
+        "description": "Improve the standard of living.",
+        "icon": "Apartment",
+        "link": "https://www.canada.ca/en/employment-social-development.html"
+      }
+    ]
+  }
+  
