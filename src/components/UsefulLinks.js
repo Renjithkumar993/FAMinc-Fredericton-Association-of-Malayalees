@@ -117,7 +117,19 @@ const UsefulLinks = () => {
                 <CardContent>
                   <List>
                     {data.healthLinks.map((link, index) => (
-                      <ListItem key={index}>
+                      <ListItem 
+                        key={index}
+                        component="a"
+                        href={link.link}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        sx={{
+                          cursor: 'pointer',
+                          '&:hover .MuiListItemText-primary': {
+                            color: '#ff8261',
+                          }
+                        }}
+                      >
                         <ListItemText
                           primary={`${index + 1}. ${link.title}`}
                           secondary={link.description}
@@ -197,7 +209,19 @@ const UsefulLinks = () => {
                 <CardContent>
                   <List>
                     {data.employmentLinks.map((jobLink, index) => (
-                      <ListItem key={index}>
+                      <ListItem 
+                        key={index}
+                        component="a"
+                        href={jobLink.link}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        sx={{
+                          cursor: 'pointer',
+                          '&:hover .MuiListItemText-primary': {
+                            color: '#ff8261',
+                          }
+                        }}
+                      >
                         <ListItemText
                           primary={`${index + 1}. ${jobLink.title}`}
                           secondary={jobLink.description}
@@ -277,7 +301,19 @@ const UsefulLinks = () => {
                 <CardContent>
                   <List>
                     {data.immigrantLinks.map((link, index) => (
-                      <ListItem key={index}>
+                      <ListItem 
+                        key={index}
+                        component="a"
+                        href={link.link}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        sx={{
+                          cursor: 'pointer',
+                          '&:hover .MuiListItemText-primary': {
+                            color: '#ff8261',
+                          }
+                        }}
+                      >
                         <ListItemText
                           primary={`${index + 1}. ${link.title}`}
                           secondary={link.description}

@@ -59,16 +59,14 @@ const AboutUsPage = () => {
         pageTitle="About Us - Fredericton Association of Malayalees" 
         description="Learn more about the Fredericton Association of Malayalees." 
       />
-      <Box sx={{ py: 6, }}>
-        <Container>
+      <Box sx={{ py: 6 }}>
+        <Container maxWidth="lg">
           <Breadcrumbs />
           <Grid container spacing={4} alignItems="center">
             <Grid item xs={12}>
               <Fade triggerOnce={false} direction="down">
                 <Typography variant="h4" fontWeight="bold" textAlign="center" gutterBottom>
-                  <Box component="span">
-                    About
-                  </Box>{' '}
+                  About{' '}
                   <Box component="span" sx={{ color: '#ff6341' }}>
                     Fredericton Association of Malayalees
                   </Box>
@@ -80,7 +78,7 @@ const AboutUsPage = () => {
               <Fade triggerOnce={false} direction="right">
                 <Box>
                   {aboutData.about.description.map((paragraph, index) => (
-                    <Typography key={index} variant="body1" paragraph sx={{  lineHeight: 1.8 }}>
+                    <Typography key={index} variant="body1" paragraph sx={{ lineHeight: 1.8 }}>
                       {paragraph}
                     </Typography>
                   ))}
@@ -149,7 +147,7 @@ const AboutUsPage = () => {
                   <Typography variant="h4" gutterBottom sx={{ color: '#ff6341', fontWeight: 'bold' }}>
                     Our Mission
                   </Typography>
-                  <Typography variant="body1" sx={{  lineHeight: 1.8 }}>
+                  <Typography variant="body1" sx={{ lineHeight: 1.8 }}>
                     {missionVisionData.missionVision.mission}
                   </Typography>
                 </Box>
