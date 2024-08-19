@@ -64,7 +64,7 @@ const AboutUsPage = () => {
           <Breadcrumbs />
           <Grid container spacing={4} alignItems="center">
             <Grid item xs={12}>
-              <Fade triggerOnce={false} direction="down">
+              <Fade triggerOnce={false} direction="down" duration={500}>
                 <Typography variant="h4" fontWeight="bold" textAlign="center" gutterBottom>
                   About{' '}
                   <Box component="span" sx={{ color: '#ff6341' }}>
@@ -75,7 +75,7 @@ const AboutUsPage = () => {
             </Grid>
 
             <Grid item xs={12} md={6}>
-              <Fade triggerOnce={false} direction="right">
+              <Fade triggerOnce={false} direction="right" duration={500}>
                 <Box>
                   {aboutData.about.description.map((paragraph, index) => (
                     <Typography key={index} variant="body1" paragraph sx={{ lineHeight: 1.8 }}>
@@ -87,7 +87,7 @@ const AboutUsPage = () => {
             </Grid>
 
             <Grid item xs={12} md={6}>
-              <Zoom triggerOnce={false} duration={1000}>
+              <Zoom triggerOnce={false} duration={700}>
                 <Box sx={{ display: 'flex', justifyContent: 'center', alignItems: 'center', overflow: 'hidden', borderRadius: 2, boxShadow: 3 }}>
                   <img src={aboutImage1} alt="About Us" style={{ width: '100%', height: 'auto', borderRadius: '8px' }} />
                 </Box>
@@ -95,7 +95,7 @@ const AboutUsPage = () => {
             </Grid>
 
             <Grid item xs={12}>
-              <Slide triggerOnce={false} direction="left" duration={1000}>
+              <Slide triggerOnce={false} direction="left" duration={500}>
                 <Grid container spacing={2}>
                   {aboutData.about.statistics.map((stat, index) => (
                     <Grid item xs={12} md={6} key={index}>
@@ -119,7 +119,7 @@ const AboutUsPage = () => {
             </Grid>
 
             <Grid item xs={12} md={6}>
-              <Zoom triggerOnce={false} duration={1000}>
+              <Zoom triggerOnce={false} duration={700}>
                 <Box sx={{ display: 'flex', justifyContent: 'center', alignItems: 'center', overflow: 'hidden', borderRadius: 2, boxShadow: 3 }}>
                   <img src={aboutImage2} alt="Activities" style={{ width: '100%', height: 'auto', borderRadius: '8px' }} />
                 </Box>
@@ -127,7 +127,7 @@ const AboutUsPage = () => {
             </Grid>
 
             <Grid item xs={12} md={6}>
-              <Fade triggerOnce={false} direction="left">
+              <Fade triggerOnce={false} direction="left" duration={500}>
                 <Box>
                   <Typography variant="h4" gutterBottom sx={{ color: '#ff6341', fontWeight: 'bold' }}>
                     Fredericton Association of Malayalees
@@ -142,7 +142,7 @@ const AboutUsPage = () => {
             </Grid>
 
             <Grid item xs={12} md={6}>
-              <Slide triggerOnce={false} direction="left" duration={1000}>
+              <Slide triggerOnce={false} direction="left" duration={500}>
                 <Box>
                   <Typography variant="h4" gutterBottom sx={{ color: '#ff6341', fontWeight: 'bold' }}>
                     Our Mission
@@ -155,7 +155,7 @@ const AboutUsPage = () => {
             </Grid>
 
             <Grid item xs={12} md={6}>
-              <Slide triggerOnce={false} direction="right" duration={1000}>
+              <Slide triggerOnce={false} direction="right" duration={500}>
                 <Box>
                   <Typography variant="h4" gutterBottom sx={{ color: '#ff6341', fontWeight: 'bold' }}>
                     Our Vision
