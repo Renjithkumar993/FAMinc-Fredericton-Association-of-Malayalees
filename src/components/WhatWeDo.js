@@ -8,34 +8,11 @@ import { Container, Button } from 'react-bootstrap';
 
 gsap.registerPlugin(ScrollTrigger);
 
-const initialCardData = [
-  {
-    id: 1,
-    title: "Helpful Document",
-    description: "We have a helpful document to guide you through.",
-    icon: <FaFileDownload />,
-    link: `${process.env.PUBLIC_URL}/documents/Welcome to Fredericton(2024-07-01)DRAFT.pdf`,
-    color: '#d9534f'
-  },
-  {
-    id: 2,
-    title: "Join Facebook Group",
-    description: "Join our Facebook group to stay connected with the community.",
-    icon: <FaFacebook />,
-    link: "https://www.facebook.com/share/3BRkpFoRkYSc1fVm/?mibextid=WUal2a",
-    color: '#3b5998'
-  },
-  {
-    id: 3,
-    title: "Join WhatsApp Group",
-    description: "Join our WhatsApp group for instant updates.",
-    icon: <FaWhatsapp />,
-    link: "https://chat.whatsapp.com/ERIMx8TBAMdJ75PdTnYeOu",
-    color: '#25D366'
-  }
-];
-
-const colors = ['#d9534f', '#3b5998', '#25D366'];
+const iconMap = {
+  FaFileDownload: <FaFileDownload />,
+  FaFacebook: <FaFacebook />,
+  FaWhatsapp: <FaWhatsapp />
+};
 
 const WhatWeDo = () => {
   const containerRef = useRef(null);
@@ -44,8 +21,18 @@ const WhatWeDo = () => {
     threshold: 0.1,
   });
 
+  const [cardData, setCardData] = useState([]);
+
   useEffect(() => {
-    if (inView) {
+    // Fetch the data from the JSON file
+    fetch(`${process.env.PUBLIC_URL}/config/socialmedialinks.json`)
+      .then(response => response.json())
+      .then(data => setCardData(data.cardData))
+      .catch(error => console.error('Error fetching data:', error));
+  }, []);
+
+  useEffect(() => {
+    if (inView && cardData.length > 0) {
       const cards = gsap.utils.toArray('.whatwedoo-card');
       cards.forEach((card, index) => {
         gsap.fromTo(
@@ -58,7 +45,7 @@ const WhatWeDo = () => {
             x: 0,
             opacity: 1,
             duration: 1,
-            backgroundColor: colors[index % colors.length],
+            backgroundColor: cardData[index % cardData.length].color,
             ease: 'power3.out',
             scrollTrigger: {
               trigger: card,
@@ -75,20 +62,20 @@ const WhatWeDo = () => {
     return () => {
       ScrollTrigger.getAll().forEach(instance => instance.kill());
     };
-  }, [inView]);
+  }, [inView, cardData]);
 
   return (
     <Container>
       <div className="whatwedoo-container" ref={containerRef}>
         <div className="whatwedoo-cards" ref={ref}>
-          {initialCardData.map((card) => (
+          {cardData.map((card) => (
             <div className="card-wrapper" key={card.id}>
               <div className="whatwedoo-card card-contents">
                 <div className="card-description">
                   <h3 className="card-description__title">{card.title}</h3>
                   <p>{card.description}</p>
                 </div>
-                <div className="card-icon">{card.icon}</div>
+                <div className="card-icon">{iconMap[card.icon]}</div>
                 {card.link && (
                   <div className="text-center mt-3">
                     <Button
@@ -98,7 +85,7 @@ const WhatWeDo = () => {
                       rel="noopener noreferrer"
                       style={{ backgroundColor: card.color }}
                     >
-                      {card.icon} Open
+                      {iconMap[card.icon]} Open
                     </Button>
                   </div>
                 )}

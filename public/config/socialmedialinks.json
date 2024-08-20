@@ -1,0 +1,63 @@
+{
+    "cardData": [
+      {
+        "id": 1,
+        "title": "Helpful Document",
+        "description": "We have a helpful document to guide you through.",
+        "icon": "FaFileDownload",
+        "link": "/documents/Welcome to Fredericton(2024-07-01)DRAFT.pdf",
+        "color": "#d9534f"
+      },
+      {
+        "id": 2,
+        "title": "Join Facebook Group",
+        "description": "Join our Facebook group to stay connected with the community.",
+        "icon": "FaFacebook",
+        "link": "https://www.facebook.com/share/3BRkpFoRkYSc1fVm/?mibextid=WUal2a",
+        "color": "#3b5998"
+      },
+      {
+        "id": 3,
+        "title": "Join WhatsApp Group",
+        "description": "Join our WhatsApp group for instant updates.",
+        "icon": "FaWhatsapp",
+        "link": "https://chat.whatsapp.com/IXV3beMoynf4ud2ekBUqlM",
+        "color": "#25D366"
+      }
+    ],
+    "socialLinks": [
+      {
+        "id": 1,
+        "platform": "Facebook",
+        "url": "https://www.facebook.com/share/3BRkpFoRkYSc1fVm/?mibextid=WUal2a",
+        "color": "#4267B2",
+        "hoverColor": "#3b5998",
+        "icon": "Facebook"
+      },
+      {
+        "id": 2,
+        "platform": "Instagram",
+        "url": "https://www.instagram.com/famnbca?igsh=MndpM3lzMWlmaHJq",
+        "color": "#E4405F",
+        "hoverColor": "#d6249f",
+        "icon": "Instagram"
+      },
+      {
+        "id": 3,
+        "platform": "WhatsApp",
+        "url": "https://chat.whatsapp.com/IXV3beMoynf4ud2ekBUqlM",
+        "color": "#25D366",
+        "hoverColor": "#128C7E",
+        "icon": "WhatsApp"
+      },
+      {
+        "id": 4,
+        "platform": "Email",
+        "url": "mailto:info@famnb.ca",
+        "color": "#EA4335",
+        "hoverColor": "#D93025",
+        "icon": "Email"
+      }
+    ]
+  }
+  

@@ -1,8 +1,15 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { Container, Grid, Box, Typography, TextField, Button, Snackbar, Alert, IconButton, Tooltip } from '@mui/material';
 import { Facebook, Instagram, WhatsApp, Email } from '@mui/icons-material';
 import Breadcrumbs from '../Breadcrumbs';
 import HelmetWrapper from '../HelmetWrapper';
+
+const iconMap = {
+  Facebook: <Facebook fontSize="large" />,
+  Instagram: <Instagram fontSize="large" />,
+  WhatsApp: <WhatsApp fontSize="large" />,
+  Email: <Email fontSize="large" />
+};
 
 const ContactUs = () => {
   const logofam = `${process.env.PUBLIC_URL}/images/logofam.jpg`;
@@ -13,9 +20,18 @@ const ContactUs = () => {
     message: ''
   });
 
+  const [socialLinks, setSocialLinks] = useState([]);
   const [openSnackbar, setOpenSnackbar] = useState(false);
   const [responseMessage, setResponseMessage] = useState('');
   const [alertSeverity, setAlertSeverity] = useState('success');
+
+  useEffect(() => {
+    // Fetch the social media links data
+    fetch(`${process.env.PUBLIC_URL}/config/socialmedialinks.json`)
+      .then(response => response.json())
+      .then(data => setSocialLinks(data.socialLinks))
+      .catch(error => console.error('Error fetching social media links:', error));
+  }, []);
 
   const handleChange = (e) => {
     setFormData({
@@ -82,26 +98,19 @@ const ContactUs = () => {
               <Box component="img" src={logofam} alt="Logo" sx={{ width: 150}} />
             </Box>
             <Box display="flex" justifyContent="center" gap={2} mt={2}>
-              <Tooltip title="Facebook">
-                <IconButton component="a" href="https://www.facebook.com/share/3BRkpFoRkYSc1fVm/?mibextid=WUal2a" target="_blank" rel="noopener noreferrer" sx={{ color: '#4267B2', '&:hover': { color: '#3b5998' } }}>
-                  <Facebook fontSize="large" />
-                </IconButton>
-              </Tooltip>
-              <Tooltip title="Instagram">
-                <IconButton component="a" href="https://www.instagram.com/famnbca?igsh=MndpM3lzMWlmaHJq" target="_blank" rel="noopener noreferrer" sx={{ color: '#E4405F', '&:hover': { color: '#d6249f' } }}>
-                  <Instagram fontSize="large" />
-                </IconButton>
-              </Tooltip>
-              <Tooltip title="WhatsApp">
-                <IconButton component="a" href="https://chat.whatsapp.com/ERIMx8TBAMdJ75PdTnYeOu" target="_blank" rel="noopener noreferrer" sx={{ color: '#25D366', '&:hover': { color: '#128C7E' } }}>
-                  <WhatsApp fontSize="large" />
-                </IconButton>
-              </Tooltip>
-              <Tooltip title="Email">
-                <IconButton component="a" href="mailto:info@famnb.ca" target="_blank" rel="noopener noreferrer" sx={{ color: '#EA4335', '&:hover': { color: '#D93025' } }}>
-                  <Email fontSize="large" />
-                </IconButton>
-              </Tooltip>
+              {socialLinks.map((link) => (
+                <Tooltip title={link.platform} key={link.id}>
+                  <IconButton
+                    component="a"
+                    href={link.url}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    sx={{ color: link.color, '&:hover': { color: link.hoverColor } }}
+                  >
+                    {iconMap[link.icon]}
+                  </IconButton>
+                </Tooltip>
+              ))}
             </Box>
           </Grid>
 
