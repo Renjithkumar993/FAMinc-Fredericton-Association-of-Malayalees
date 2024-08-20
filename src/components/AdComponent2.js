@@ -29,11 +29,12 @@ const AdComponent2 = () => {
         sx={{
           borderRadius: 2,
           boxShadow: 6,
-          maxWidth: { xs: '100%', md: '1000px' },
+          maxWidth: { xs: '100%', md: '800px' },
           mx: 'auto',
           backgroundColor: '#0c1a2c',
           color: '#fff',
           position: 'relative',
+          overflow: 'hidden',
         }}
       >
         <Box
@@ -48,32 +49,60 @@ const AdComponent2 = () => {
             zIndex: 0,
           }}
         />
-        <CardContent sx={{ py: 5, position: 'relative', zIndex: 2 }}>
+        <CardContent sx={{ py: 4, position: 'relative', zIndex: 2 }}>
           <Grid container spacing={4} alignItems="center">
+            <Grid
+              item
+              xs={12}
+              md={4}
+              sx={{
+                display: { xs: 'flex', md: 'block' },
+                flexDirection: 'column',
+                alignItems: 'center',
+              }}
+            >
+              <Typography
+                variant="subtitle2"
+                sx={{
+                  fontWeight: 'bold',
+                  letterSpacing: 1,
+                  textTransform: 'uppercase',
+                  mb: 2,
+                  color: '#ff6341',
+                  textAlign: { xs: 'center', md: 'left' },
+                }}
+              >
+                Our Sponsor
+              </Typography>
+              <Slide direction="right" triggerOnce={false}>
+                <Zoom triggerOnce={false}>
+                  <Box
+                    component="img"
+                    src={adData.logo}
+                    alt="Sponsor Logo"
+                    sx={{
+                      maxWidth: '100%',
+                      height: 'auto',
+                      display: 'block',
+                      mx: 'auto',
+                      transition: 'transform 0.3s ease-in-out',
+                      '&:hover': { transform: 'scale(1.1)' },
+                    }}
+                  />
+                </Zoom>
+              </Slide>
+            </Grid>
             <Grid item xs={12} md={8}>
               <Box>
                 <Typography
-                  variant="subtitle2"
-                  sx={{
-                    fontWeight: 'bold',
-                    letterSpacing: 1,
-                    textTransform: 'uppercase',
-                    mb: 2,
-                    color: '#ff6341',
-                    textAlign: { xs: 'center', md: 'left' },
-                  }}
-                >
-                  Our Sponsor
-                </Typography>
-                <Typography
-                  variant="h5"
+                  variant="body1"
                   sx={{
                     mb: 3,
                     color: '#ffffff',
                     textAlign: { xs: 'center', md: 'left' },
                   }}
                 >
-                  {adData.subtitle}
+                  We specialize in providing top-tier property restoration services and real estate solutions.
                 </Typography>
                 <Box
                   sx={{
@@ -131,25 +160,6 @@ const AdComponent2 = () => {
                   </Button>
                 </Box>
               </Box>
-            </Grid>
-            <Grid item xs={12} md={4}>
-              <Slide direction="right" triggerOnce={false}>
-                <Zoom triggerOnce={false}>
-                  <Box
-                    component="img"
-                    src={adData.logo}
-                    alt="Sponsor Logo"
-                    sx={{
-                      maxWidth: '100%',
-                      height: 'auto',
-                      display: 'block',
-                      mx: 'auto',
-                      transition: 'transform 0.3s ease-in-out',
-                      '&:hover': { transform: 'scale(1.1)' },
-                    }}
-                  />
-                </Zoom>
-              </Slide>
             </Grid>
           </Grid>
         </CardContent>
