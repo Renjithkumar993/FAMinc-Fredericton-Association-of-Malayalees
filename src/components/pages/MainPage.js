@@ -6,6 +6,7 @@ import AdvertisingComponent from '../AdvertisingComponent';
 import BacklinkInfo from '../BacklinkInfo';
 import CampaignTeaserComponent from '../pages/CampaignTeaserComponent';
 import HelmetWrapper from '../HelmetWrapper';
+import AdComponent2 from '../AdComponent2';
 
 const LandingPage = React.lazy(() => import('../Landingpage'));
 const AboutUs = React.lazy(() => import('../AboutUs'));
@@ -65,6 +66,7 @@ const MainPage = React.memo(() => {
         <AdvertisingComponent />
         <Element name="mission" id="mission"><MissionVision /></Element>
         <FacebookPageEmbed />
+        <AdComponent2 />
         <Steps />
         <JoinComponent />
         <UpcomingEvent />

@@ -56,7 +56,7 @@ const UsefulLinks = () => {
     
     <Container sx={{ marginTop: '80px', minHeight: '100vh', display: 'flex', flexDirection: 'column', justifyContent: 'center' }}>
       <Typography variant="h4" gutterBottom align="center" sx={{ marginBottom: 4, color: '#ff6341' }}>
-        Useful Links for Newcomers to New Brunswick
+        Useful Links for Newcomers to Fredericton, New Brunswick
       </Typography>
       <Grid container spacing={4}>
         
@@ -106,7 +106,7 @@ const UsefulLinks = () => {
                     Health Services
                   </Typography>
                   <Typography variant="body2" sx={{ marginBottom: 2, color: '#fff' }}>
-                    Click to explore health-related services in New Brunswick.
+                    Click to explore health-related services in Fredericton, New Brunswick.
                   </Typography>
                   <IconButton
                     sx={{
@@ -195,10 +195,10 @@ const UsefulLinks = () => {
                       color: '#ff6341',
                     }}
                   >
-                    Employment Services
+                    Employment Services in Fredericton
                   </Typography>
                   <Typography variant="body2" sx={{ marginBottom: 2, color: '#fff' }}>
-                    Explore job opportunities.
+                    Explore job opportunities in Fredericton Newbrunswick.
                   </Typography>
                   <IconButton
                     sx={{
@@ -287,10 +287,10 @@ const UsefulLinks = () => {
                       color: '#ff6341',
                     }}
                   >
-                    For New Immigrants
+                    For New Immigrants 
                   </Typography>
                   <Typography variant="body2" sx={{ marginBottom: 2, color: '#fff' }}>
-                    Information and services for newcomers to New Brunswick.
+                    Information and services for newcomers to Fredericton, New Brunswick.
                   </Typography>
                   <IconButton
                     sx={{

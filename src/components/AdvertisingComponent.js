@@ -44,6 +44,8 @@ const AdvertisingComponent = () => {
             } else {
                 console.error('Error updating count:', data.message);
             }
+
+            
         } catch (error) {
             console.error('Error handling button click:', error);
         }
