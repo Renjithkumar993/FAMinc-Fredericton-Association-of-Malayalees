@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { Container, Grid, Card, CardContent, Typography, CardActionArea, Box, IconButton, Collapse, List, ListItem, ListItemText } from '@mui/material';
 import { ExpandMore, LocationCity, Work, AccountBalance, LocalHospital, ChildCare, Groups, CreditCard, Apartment } from '@mui/icons-material';
 import { Zoom } from 'react-awesome-reveal';
+import HelmetWrapper from './HelmetWrapper';
 
 const iconMapping = {
   LocationCity: <LocationCity />,
@@ -47,6 +48,12 @@ const UsefulLinks = () => {
   }
 
   return (
+    <>
+    <HelmetWrapper 
+  pageTitle="Useful Links - Fredericton Association of Malayalees" 
+  description="Find essential resources and links for newcomers to Fredericton, including community services, employment opportunities, and more. Stay informed and connected with our Useful Links section."
+/>
+    
     <Container sx={{ marginTop: '80px', minHeight: '100vh', display: 'flex', flexDirection: 'column', justifyContent: 'center' }}>
       <Typography variant="h4" gutterBottom align="center" sx={{ marginBottom: 4, color: '#ff6341' }}>
         Useful Links for Newcomers to New Brunswick
@@ -389,6 +396,7 @@ const UsefulLinks = () => {
 
       </Grid>
     </Container>
+    </>
   );
 };
 
