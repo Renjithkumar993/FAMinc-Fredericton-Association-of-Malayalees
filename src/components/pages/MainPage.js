@@ -53,7 +53,7 @@ const MainPage = React.memo(() => {
   return (
     <>
     <HelmetWrapper 
-  pageTitle="FAM" 
+  pageTitle="" 
   description="Join the Fredericton Association of Malayalees (FAM) in Canada to celebrate and promote the vibrant culture of Kerala. Connect with Malayalees, Indians in Fredericton, and New Brunswick." 
 />
 
