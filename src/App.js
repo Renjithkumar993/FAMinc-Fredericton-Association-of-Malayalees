@@ -4,11 +4,10 @@ import './App.css';
 import './Typography.css';
 import NavigationBar from './components/NavigationBar';
 import Footer from './components/Footer';
-import PageWithHelmet from './components/PageWithHelmet';
 import Loading from './components/Loading';
 import MainPage from './components/pages/MainPage';
 import { createGlobalStyle } from 'styled-components';
-import NotFoundPage from './components/pages/NotFoundPage'; // Import NotFoundPage component
+import NotFoundPage from './components/pages/NotFoundPage';
 
 const bgImage = `${process.env.PUBLIC_URL}/images/web_bg.png`;
 
@@ -19,7 +18,7 @@ const EventDetail = lazy(() => import('./components/pages/EventDetail'));
 const JoinPage = lazy(() => import('./components/pages/JoinPage'));
 const Gallery = lazy(() => import('./components/pages/Gallery'));
 const CampaignComponent = lazy(() => import('./components/pages/CampaignComponent'));
-const UsefulLinks = lazy(() => import("./components/UsefulLinks"))
+const UsefulLinks = lazy(() => import("./components/UsefulLinks"));
 
 class App extends React.Component {
   constructor(props) {
@@ -46,14 +45,14 @@ class App extends React.Component {
     }
 
     const GlobalStyle = createGlobalStyle`
-    body {
-      margin: 0;
-      padding: 0;
-      color: #333;
-      line-height: 1.6;
-      background-image: url(${bgImage}) !important;
-    }
-  `;
+      body {
+        margin: 0;
+        padding: 0;
+        color: #333;
+        line-height: 1.6;
+        background-image: url(${bgImage}) !important;
+      }
+    `;
 
     return (
       <div>
@@ -61,15 +60,15 @@ class App extends React.Component {
         <NavigationBar />
         <Suspense fallback={<Loading loading={true} />}>
           <Routes>
-            <Route path="/" element={<PageWithHelmet pageTitle="Fredericton Association of Malayalees" Component={MainPage} />} />
-            <Route path="/aboutus" element={<PageWithHelmet pageTitle="About Us" Component={AboutUsPage} />} />
-            <Route path="/events" element={<PageWithHelmet pageTitle="Events" Component={EventSection} />} />
-            <Route path="/:eventId" element={<PageWithHelmet Component={EventDetail} />} />
-            <Route path="/contactus" element={<PageWithHelmet pageTitle="Contact Us" Component={ContactUs} />} />
-            <Route path="/joinus" element={<PageWithHelmet pageTitle="Join Us" Component={JoinPage} />} />
-            <Route path="/usefullinks" element={<PageWithHelmet pageTitle="Useful Links" Component={UsefulLinks} />} />
-            <Route path="/gallery" element={<PageWithHelmet pageTitle="Gallery" Component={Gallery} />} />
-            <Route path="/savewayanad" element={<PageWithHelmet pageTitle="Save Wayanad" Component={CampaignComponent} />} />
+            <Route path="/" element={<MainPage />} />
+            <Route path="/aboutus" element={<AboutUsPage />} />
+            <Route path="/events" element={<EventSection />} />
+            <Route path="/:eventId" element={<EventDetail />} />
+            <Route path="/contactus" element={<ContactUs />} />
+            <Route path="/joinus" element={<JoinPage />} />
+            <Route path="/usefullinks" element={<UsefulLinks />} />
+            <Route path="/gallery" element={<Gallery />} />
+            <Route path="/savewayanad" element={<CampaignComponent />} />
             <Route path="/404" element={<NotFoundPage />} />
             <Route path="*" element={<NotFoundPage />} />
           </Routes>
