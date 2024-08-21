@@ -2,12 +2,10 @@ import React, { useState, useEffect, Suspense } from 'react';
 import { Element } from 'react-scroll';
 import Loading from '../Loading';
 import FullWidthImage from '../FullWidthImage';
-import AdvertisingComponent from '../AdvertisingComponent';
 import BacklinkInfo from '../BacklinkInfo';
 import CampaignTeaserComponent from '../pages/CampaignTeaserComponent';
 import HelmetWrapper from '../HelmetWrapper';
-import AdComponent2 from '../AdComponent2';
-import EventHighlights from "../EventHighlights"
+import AnnualSponsors from '../AnnualSponsors';
 
 const LandingPage = React.lazy(() => import('../Landingpage'));
 const AboutUs = React.lazy(() => import('../AboutUs'));
@@ -64,18 +62,17 @@ const MainPage = React.memo(() => {
         <Element name="home" id="home"><LandingPage /></Element>
         <CampaignTeaserComponent />
         <Element name="about" id="about"><AboutUs /></Element>
-        <AdvertisingComponent />
         <Element name="mission" id="mission"><MissionVision /></Element>
-        <AdComponent2 />
-        <Steps />
+    
         <FacebookPageEmbed />
+        <Steps />
   
-   
+        <AnnualSponsors />
   
         <JoinComponent />
         <UpcomingEvent />
-        <EventHighlights />
         <BacklinkInfo />
+         
         <FullWidthImage />
       </Suspense>
     </>
