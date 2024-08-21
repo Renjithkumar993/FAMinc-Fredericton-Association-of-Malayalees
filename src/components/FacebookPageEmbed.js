@@ -3,12 +3,11 @@ import { Box, Typography, CircularProgress, Button, Container, IconButton, Grid 
 import { FaFacebookF } from 'react-icons/fa';
 
 const bgImage = `${process.env.PUBLIC_URL}/images/web_bg.png`;
-const chenda = `${process.env.PUBLIC_URL}/images/events/chenda1.gif`;
 
 const FacebookPageEmbed = () => {
   const [loading, setLoading] = useState(true);
   const [retryCount, setRetryCount] = useState(0);
-  const maxRetries = 3; // Max retries for loading the SDK
+  const maxRetries = 3;
   const iframeRef = useRef(null);
 
   const loadFacebookSDK = useCallback(() => {
@@ -23,20 +22,18 @@ const FacebookPageEmbed = () => {
           window.FB.XFBML.parse();
           setLoading(false);
         } else if (retryCount < maxRetries) {
-          setRetryCount((prevCount) => prevCount + 1);
+          setRetryCount(prev => prev + 1);
         }
       };
       script.onerror = () => {
         if (retryCount < maxRetries) {
-          setRetryCount((prevCount) => prevCount + 1);
+          setRetryCount(prev => prev + 1);
         }
       };
       document.body.appendChild(script);
     } else if (window.FB) {
       window.FB.XFBML.parse();
       setLoading(false);
-    } else if (retryCount < maxRetries) {
-      setRetryCount((prevCount) => prevCount + 1);
     }
   }, [retryCount, maxRetries]);
 
@@ -44,7 +41,7 @@ const FacebookPageEmbed = () => {
     if (retryCount < maxRetries) {
       loadFacebookSDK();
     } else {
-      setLoading(false); 
+      setLoading(false);
     }
   }, [loadFacebookSDK, retryCount, maxRetries]);
 
@@ -59,8 +56,8 @@ const FacebookPageEmbed = () => {
 
   useEffect(() => {
     const observer = new IntersectionObserver(
-      (entries) => {
-        entries.forEach((entry) => {
+      entries => {
+        entries.forEach(entry => {
           if (entry.isIntersecting && retryCount < maxRetries) {
             loadFacebookSDK();
           }
@@ -81,20 +78,18 @@ const FacebookPageEmbed = () => {
   }, [loadFacebookSDK, retryCount, maxRetries]);
 
   return (
-    <Container 
+    <Container
       sx={{
         display: 'flex',
         justifyContent: 'center',
         alignItems: 'center',
-        minHeight: '100vh',
-        background: `url(${bgImage}) repeat`,
-        animation: 'fadeIn 0.6s ease-out',
-        p: 2,
-        overflow: 'hidden',
+        maxWidth: '1200px',
+        margin: 'auto',
+        
       }}
     >
-      <Grid container spacing={2} alignItems="center" justifyContent="center">
-        <Grid item xs={12} md={7}>
+      <Grid container spacing={4} alignItems="center" justifyContent="center" marginTop="50px">
+        <Grid item xs={12} md={10}>
           <Box
             sx={{
               display: 'flex',
@@ -103,9 +98,9 @@ const FacebookPageEmbed = () => {
               textAlign: 'center',
               color: 'white',
               background: 'linear-gradient(135deg, #4267b2, #365899)',
-              p: 4,
-              borderTopLeftRadius: 15,
-              borderTopRightRadius: 15,
+              padding: '2rem',
+              borderRadius: '16px 16px 0 0',
+              boxShadow: 2,
             }}
           >
             <IconButton
@@ -113,37 +108,39 @@ const FacebookPageEmbed = () => {
                 backgroundColor: 'white',
                 color: '#4267b2',
                 borderRadius: '50%',
-                width: 60,
-                height: 60,
-                mb: 2,
-                boxShadow: 3,
+                width: 70,
+                height: 70,
+                marginBottom: 2,
+                boxShadow: 4,
+                transition: 'background-color 0.3s ease, color 0.3s ease',
                 '&:hover': {
                   backgroundColor: '#365899',
                   color: 'white',
                 },
               }}
             >
-              <FaFacebookF size={30} />
+              <FaFacebookF size={35} />
             </IconButton>
-            <Typography variant="h4" component="h1" sx={{ fontWeight: 'bold' }}>
+            <Typography variant="h3" component="h1" sx={{ fontWeight: 'bold', marginBottom: 1 }}>
               Follow Us on Facebook
             </Typography>
-            <Typography variant="body1" sx={{ opacity: 0.8, mb: 2 }}>
-              Stay updated with our latest news
+            <Typography variant="body1" sx={{ opacity: 0.8 }}>
+              Stay updated with our latest news and events
             </Typography>
           </Box>
           <Box
             ref={iframeRef}
             sx={{
               width: '100%',
-              p: 2,
+              height: '500px',
               display: 'flex',
               justifyContent: 'center',
               alignItems: 'center',
               textAlign: 'center',
-              backgroundColor: 'inherit',
-              borderBottomLeftRadius: 15,
-              borderBottomRightRadius: 15,
+              backgroundColor: '#f0f0f0',
+              borderRadius: '0 0 16px 16px',
+              boxShadow: 2,
+              overflow: 'hidden',
             }}
           >
             {loading ? (
@@ -152,24 +149,26 @@ const FacebookPageEmbed = () => {
                   display: 'flex',
                   justifyContent: 'center',
                   alignItems: 'center',
-                  height: 200,
+                  width: '100%',
+                  height: '100%',
                   fontSize: '1.5rem',
                   color: '#4267b2',
                 }}
               >
-                <CircularProgress />
+                <CircularProgress color="primary" />
               </Box>
             ) : (
               <div
                 className="fb-page"
                 data-href="https://www.facebook.com/profile.php?id=61552104893247"
                 data-tabs="timeline"
-                data-width=""
-                data-height=""
+                data-width="500"
+                data-height="500"
                 data-small-header="false"
                 data-adapt-container-width="true"
                 data-hide-cover="false"
                 data-show-facepile="true"
+                style={{ width: '100%', height: '100%', overflow: 'hidden' }}
               >
                 <blockquote
                   cite="https://www.facebook.com/profile.php?id=61552104893247"
@@ -187,7 +186,7 @@ const FacebookPageEmbed = () => {
                 href="https://www.facebook.com/profile.php?id=61552104893247"
                 target="_blank"
                 sx={{
-                  mt: 2,
+                  marginTop: 2,
                   backgroundColor: '#4267b2',
                   color: 'white',
                   '&:hover': {
@@ -201,20 +200,6 @@ const FacebookPageEmbed = () => {
               </Button>
             )}
           </Box>
-        </Grid>
-        <Grid item xs={6} md={3}>
-          <Box
-            component="img"
-            src={chenda}
-            alt="Chenda"
-            sx={{
-              width: '100%',
-              height: 'auto',
-              maxWidth: 400,
-              mx: 'auto',
-              animation: 'fadeIn 0.6s ease-out',
-            }}
-          />
         </Grid>
       </Grid>
     </Container>

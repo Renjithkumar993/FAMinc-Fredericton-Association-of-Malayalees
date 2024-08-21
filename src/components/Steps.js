@@ -22,7 +22,7 @@ const Steps = () => {
   }, []);
 
   return (
-    <section className="step-section" id="about">
+    <section className="step-section mt-2" id="about">
       <Container>
         <Row className="">
           <Col xs={12} md={6} className="order-1 order-md-1">

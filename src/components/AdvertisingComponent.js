@@ -55,7 +55,7 @@ const AdvertisingComponent = () => {
 
     return (
         <Container sx={{ py: 2 }}>
-            <Card sx={{ borderRadius: 2, boxShadow: 3, overflow: 'hidden', maxWidth: 1000, mx: 'auto', backgroundColor: '#f5f5f5' }}>
+            <Card sx={{ borderRadius: 2, boxShadow: 3, overflow: 'hidden', maxWidth: 1200, mx: 'auto', backgroundColor: '#f5f5f5' }}>
                 <CardContent sx={{ textAlign: 'center', py: 2 }}>
                     <Typography variant="subtitle2" color="textSecondary" sx={{ fontWeight: 'bold', letterSpacing: 1, textTransform: 'uppercase', mb: 1 }}>
                         Our Sponsor

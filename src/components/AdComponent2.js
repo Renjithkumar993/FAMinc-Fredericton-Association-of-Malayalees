@@ -29,12 +29,14 @@ const AdComponent2 = () => {
         sx={{
           borderRadius: 2,
           boxShadow: 6,
-          maxWidth: { xs: '100%', md: '800px' },
+          maxWidth: { xs: '100%', md: '1200px' },
           mx: 'auto',
           backgroundColor: '#0c1a2c',
           color: '#fff',
           position: 'relative',
           overflow: 'hidden',
+         
+         
         }}
       >
         <Box
