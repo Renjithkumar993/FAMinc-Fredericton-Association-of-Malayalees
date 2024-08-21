@@ -121,7 +121,7 @@ const FacebookPageEmbed = () => {
             >
               <FaFacebookF size={35} />
             </IconButton>
-            <Typography variant="h3" component="h1" sx={{ fontWeight: 'bold', marginBottom: 1, fontSize: { xs: '1.5rem', md: '3rem' }, }} >
+            <Typography variant="h3" component="h1" sx={{ fontWeight: 'bold', marginBottom: 1, fontSize: { xs: '2rem', md: '3rem' }, }} >
               Follow Us on <span style={{ color: '#ff6341' }}>Facebook</span>
             </Typography>
             <Typography variant="body1" sx={{ opacity: 0.8 }}>

@@ -44,7 +44,7 @@ const AnnualSponsors = () => {
                     fontWeight: 'bold',
                     textTransform: 'uppercase',
                     color: '#000',
-                    fontSize: { xs: '1.5rem', md: '3rem' },
+                    fontSize: { xs: '1.9rem', md: '3rem' },
                 }}
             >
                 Our Annual <span style={{ color: '#ff6341' }}>Sponsors</span>
