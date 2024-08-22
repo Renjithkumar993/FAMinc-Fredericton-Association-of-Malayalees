@@ -9,7 +9,10 @@ import { LazyLoadImage } from 'react-lazy-load-image-component';
 import 'react-lazy-load-image-component/src/effects/blur.css';
 import './EventDetail.css';
 import { useNavigate } from 'react-router-dom';
-import EventSponsors from './EventSponsors';
+import EventSponsorImages from '../EventSponsorImages';
+
+
+
 
 const ModalComponent = lazy(() => import('../ModalComponent'));
 const Loading = lazy(() => import('../Loading'));
@@ -210,6 +213,8 @@ const EventModals = ({ event, modalType, handleModalClose }) => (
         <ModalComponent open={modalType === 'performance'} handleClose={handleModalClose} iframeSrc={event.performanceIframe} />
       </Suspense>
     )}
+
+    <EventSponsorImages />
 
   </>
 );

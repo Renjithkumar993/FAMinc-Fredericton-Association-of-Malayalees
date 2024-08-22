@@ -6,6 +6,7 @@ import BacklinkInfo from '../BacklinkInfo';
 import CampaignTeaserComponent from '../pages/CampaignTeaserComponent';
 import HelmetWrapper from '../HelmetWrapper';
 import AnnualSponsors from '../AnnualSponsors';
+import EventSponsorImages from '../EventSponsorImages';
 
 const LandingPage = React.lazy(() => import('../Landingpage'));
 const AboutUs = React.lazy(() => import('../AboutUs'));
@@ -71,6 +72,8 @@ const MainPage = React.memo(() => {
   
         <JoinComponent />
         <UpcomingEvent />
+
+        <EventSponsorImages />
         <BacklinkInfo />
          
         <FullWidthImage />
