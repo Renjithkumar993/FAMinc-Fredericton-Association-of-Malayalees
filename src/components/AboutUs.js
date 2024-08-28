@@ -2,8 +2,8 @@ import React, { useState, useEffect } from 'react';
 import { Container, Grid, Button, Typography } from '@mui/material';
 import { Slide, Zoom } from 'react-awesome-reveal';
 import { useNavigate } from 'react-router-dom';
-import './AboutUs.css'; // Keep your existing CSS file
-import Loading from './Loading'; // Ensure this is the correct path to your Loading component
+import './AboutUs.css'; 
+import Loading from './Loading'; 
 
 const AboutUs = () => {
   const [data, setData] = useState(null);

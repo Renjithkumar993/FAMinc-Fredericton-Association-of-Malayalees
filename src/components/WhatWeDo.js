@@ -3,8 +3,8 @@ import gsap from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import { useInView } from 'react-intersection-observer';
 import { FaFileDownload, FaFacebook, FaWhatsapp } from 'react-icons/fa';
+import { Container, Button, Typography, Box } from '@mui/material';
 import './WhatWeDo.css';
-import { Container, Button } from 'react-bootstrap';
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -66,34 +66,37 @@ const WhatWeDo = () => {
 
   return (
     <Container>
-      <div className="whatwedoo-container" ref={containerRef}>
-        <div className="whatwedoo-cards" ref={ref}>
+      <Box className="whatwedoo-container" ref={containerRef}>
+        <Box className="whatwedoo-cards" ref={ref}>
           {cardData.map((card) => (
-            <div className="card-wrapper" key={card.id}>
-              <div className="whatwedoo-card card-contents">
-                <div className="card-description">
-                  <h3 className="card-description__title">{card.title}</h3>
-                  <p>{card.description}</p>
-                </div>
-                <div className="card-icon">{iconMap[card.icon]}</div>
+            <Box className="card-wrapper" key={card.id}>
+              <Box className="whatwedoo-card card-contents">
+                <Box className="card-description">
+                  <Typography variant="h5" className="card-description__title">
+                    {card.title}
+                  </Typography>
+                  <Typography>{card.description}</Typography>
+                </Box>
+                <Box className="card-icon">{iconMap[card.icon]}</Box>
                 {card.link && (
-                  <div className="text-center mt-3">
+                  <Box className="text-center mt-3">
                     <Button
-                      variant="primary"
+                      variant="contained"
                       href={card.link}
                       target="_blank"
                       rel="noopener noreferrer"
-                      style={{ backgroundColor: card.color }}
+                      sx={{ backgroundColor: card.color }}
+                      startIcon={iconMap[card.icon]}
                     >
-                      {iconMap[card.icon]} Open
+                      Open
                     </Button>
-                  </div>
+                  </Box>
                 )}
-              </div>
-            </div>
+              </Box>
+            </Box>
           ))}
-        </div>
-      </div>
+        </Box>
+      </Box>
     </Container>
   );
 };

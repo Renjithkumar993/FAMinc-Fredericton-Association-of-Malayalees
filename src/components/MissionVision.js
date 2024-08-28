@@ -1,12 +1,11 @@
 import React, { useEffect, useState } from 'react';
-import {  Row, Col } from 'react-bootstrap';
+import { Grid, Box, Button, Container, Typography } from '@mui/material';
 import { useInView } from 'react-intersection-observer';
 import { Typewriter } from 'react-simple-typewriter';
 import { motion } from 'framer-motion';
 import './MissionVision.css';
 import { useNavigate } from 'react-router-dom';
 import Loading from './Loading'; // Ensure this is the correct path to your Loading component
-import { Container } from '@mui/material';
 
 const TEXTS = ['MISSION', 'VISION'];
 
@@ -65,16 +64,16 @@ const MissionVision = () => {
   return (
     <div className="mv-section" id="mission">
       <Container>
-        <Row className="align-items-center">
-          <Col md={6} ref={textRef}>
+        <Grid container alignItems="center">
+          <Grid item md={6} ref={textRef}>
             <motion.div
               className="mv-text-container"
               initial={{ x: 100, opacity: 0 }}
               animate={{ x: textInView ? 0 : 100, opacity: textInView ? 1 : 0 }}
               transition={{ duration: 0.5 }}
             >
-              <h2>
-                OUR <span className="highlight-text">
+              <Typography variant="h4"style={{ fontWeight: 'bold' }}>
+                OUR <span className="highlight-text" >
                   <Typewriter
                     words={['MISSION']}
                     loop={true}
@@ -85,9 +84,9 @@ const MissionVision = () => {
                     delaySpeed={2000}
                   />
                 </span>
-              </h2>
-              <p>{missionVisionData.mission}</p>
-              <h2>
+              </Typography>
+              <Typography>{missionVisionData.mission}</Typography>
+              <Typography variant="h4" style={{ fontWeight: 'bold' }}>
                 OUR <span className="highlight-text">
                   <Typewriter
                     words={['VISION']}
@@ -99,12 +98,19 @@ const MissionVision = () => {
                     delaySpeed={1000}
                   />
                 </span>
-              </h2>
-              <p>{missionVisionData.vision}</p>
-              <button className="mv-read-more-btn mb-4" onClick={() => navigate('/aboutus')}>Read More</button>
+              </Typography>
+              <Typography>{missionVisionData.vision}</Typography>
+              <Button
+                variant="contained"
+                color="primary"
+                className="mv-read-more-btn mb-4"
+                onClick={() => navigate('/aboutus')}
+              >
+                Read More
+              </Button>
             </motion.div>
-          </Col>
-          <Col md={6} ref={imageRef}>
+          </Grid>
+          <Grid item md={6} ref={imageRef}>
             <motion.div
               className="mv-image-container"
               initial={{ x: -100, opacity: 0 }}
@@ -113,8 +119,8 @@ const MissionVision = () => {
             >
               <img src={missionImage} alt="Mission and Vision" className="mv-mission-image img-fluid" />
             </motion.div>
-          </Col>
-        </Row>
+          </Grid>
+        </Grid>
       </Container>
     </div>
   );
