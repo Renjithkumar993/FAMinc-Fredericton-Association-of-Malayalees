@@ -1,7 +1,8 @@
 import React, { useEffect } from 'react';
-import { Container, Row, Col } from 'react-bootstrap';
+import {  Row, Col } from 'react-bootstrap';
 import './Steps.css';
 import WhatWeDo from './WhatWeDo';
+import { Container } from '@mui/material';
 
 
 const eventIcon = (`${process.env.PUBLIC_URL}/images/icons/event.png`);
@@ -22,7 +23,7 @@ const Steps = () => {
   }, []);
 
   return (
-    <section className="step-section mt-5" id="about">
+    <section className="step-section" id="about">
       <Container>
         <Row className="">
           <Col xs={12} md={6} className="order-1 order-md-1">

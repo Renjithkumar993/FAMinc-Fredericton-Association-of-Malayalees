@@ -43,7 +43,7 @@ const AboutUs = () => {
 
   return (
     <section className="about-us-section" id="about">
-      <Container maxWidth="lg">
+      <Container >
         <Grid container alignItems="center" spacing={4}>
           <Grid item xs={12} md={6} className="about-text-grid">
             <Slide direction="left" duration={700} triggerOnce={false}>

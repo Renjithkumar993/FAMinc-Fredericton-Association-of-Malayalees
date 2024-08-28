@@ -1,11 +1,12 @@
 import React, { useEffect, useState } from 'react';
-import { Container, Row, Col } from 'react-bootstrap';
+import {  Row, Col } from 'react-bootstrap';
 import { useInView } from 'react-intersection-observer';
 import { Typewriter } from 'react-simple-typewriter';
 import { motion } from 'framer-motion';
 import './MissionVision.css';
 import { useNavigate } from 'react-router-dom';
 import Loading from './Loading'; // Ensure this is the correct path to your Loading component
+import { Container } from '@mui/material';
 
 const TEXTS = ['MISSION', 'VISION'];
 

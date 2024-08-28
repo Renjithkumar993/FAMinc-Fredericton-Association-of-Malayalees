@@ -88,7 +88,7 @@ const FacebookPageEmbed = () => {
         
       }}
     >
-      <Grid container spacing={4} alignItems="center" justifyContent="center" marginTop="50px">
+      <Grid container spacing={4} alignItems="center" justifyContent="center" >
         <Grid item xs={12} md={10}>
           <Box
             sx={{

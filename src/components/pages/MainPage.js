@@ -63,13 +63,14 @@ const MainPage = React.memo(() => {
         <Element name="home" id="home"><LandingPage /></Element>
         <CampaignTeaserComponent />
         <Element name="about" id="about"><AboutUs /></Element>
+        <Steps />
         <Element name="mission" id="mission"><MissionVision /></Element>
     
-        <FacebookPageEmbed />
-        <Steps />
+       
+     
   
         <AnnualSponsors />
-  
+        <FacebookPageEmbed />
         <JoinComponent />
         <UpcomingEvent />
 
