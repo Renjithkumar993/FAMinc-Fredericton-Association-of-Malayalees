@@ -9,9 +9,7 @@ const TicketPage = () => {
   const handleCloseModal = () => setModalOpen(false);
 
   const iframeLink = "https://www.zeffy.com/en-CA/ticketing/ec366437-165a-483a-9964-6a1150fd8fb6"; // Replace this with your actual iframe link
-
-
-  const  gameImage = `${process.env.PUBLIC_URL}/images/events/game.jpeg`
+  const gameImage = `${process.env.PUBLIC_URL}/images/events/game.jpeg`;
 
   return (
     <Box
@@ -20,14 +18,15 @@ const TicketPage = () => {
         justifyContent: 'center',
         alignItems: 'center',
         minHeight: '100vh',
- 
+        padding: { xs: 3, md: 5 },
+        marginTop:"50px" // Add padding for smaller screens
       }}
     >
       <Card
         sx={{
           maxWidth: 600,
+          width: '100%', // Ensure the card takes full width on smaller screens
           borderRadius: 2,
-          boxShadow: '0 4px 12px rgba(0, 0, 0, 0.1)',
           position: 'relative',
         }}
       >
@@ -35,7 +34,12 @@ const TicketPage = () => {
           component="img"
           src={gameImage}
           alt="Event Promo"
-          sx={{ width: '100%', borderRadius: '8px 8px 0 0' }}
+          sx={{
+            width: '100%',
+            height: '100%', // Responsive heights for different screens
+            objectFit: 'cover', // Ensures the image covers the box without cutting off important parts
+            borderRadius: '8px 8px 0 0',
+          }}
         />
         <CardContent sx={{ textAlign: 'center', padding: 2 }}>
           <Typography variant="h5" component="h2" color="textPrimary">

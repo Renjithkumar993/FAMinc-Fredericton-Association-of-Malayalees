@@ -112,9 +112,9 @@ const EventDetail = () => {
      
           <h2 className="event-title">{event.title}</h2>
         </div>
-        <Row className="align-items-center text-center mb-4">
+        <Row className="align-items-center  mb-4">
           
-          <Col xs={12} md={6} className="event-image-container text-center mb-4 mb-md-0">
+          <Col xs={12} md={6} className="event-image-container  mb-4 mb-md-0">
          
             <LazyLoadImage
               className="event-image"
@@ -136,7 +136,7 @@ const EventDetail = () => {
   
   
   
-          <Col xs={12} sm={6}>
+          <Col xs={12} sm={6} className='text-center'>
   <ActionButton
   
     text={"Get 50/50 Tickets"}
