@@ -10,6 +10,7 @@ import 'react-lazy-load-image-component/src/effects/blur.css';
 import './EventDetail.css';
 import { useNavigate } from 'react-router-dom';
 import EventSponsorImages from '../EventSponsorImages';
+import { Box } from '@mui/material';
 
 
 
@@ -61,6 +62,8 @@ const EventDetail = () => {
   const handleModalClose = () => setModalType(null);
   const handleModalShow = (type) => setModalType(type);
 
+  
+
   if (loading) {
     return (
       <Suspense fallback={<div>Loading...</div>}>
@@ -99,21 +102,25 @@ const EventDetail = () => {
               Event closed.
             </Alert>
           )}
+          
           <img
             src={images.maveliResizeGif}
             alt="Maveli"
             className="img-fluid"
           />
+     
           <h2 className="event-title">{event.title}</h2>
         </div>
         <Row className="align-items-center mb-4">
           <Col xs={12} md={6} className="event-image-container text-center mb-4 mb-md-0">
+         
             <LazyLoadImage
               className="event-image"
               src={event.image}
               alt={event.title}
               effect="blur"
             />
+       
           </Col>
           <Col xs={12} md={6}>
             <div className="event-info">
@@ -185,6 +192,13 @@ const EventActions = ({ event, handleModalShow }) => (
           disabled={!event.performanceIframe}
         />
       </Col>
+      <Col xs={12} sm={12}>
+    <ActionButton
+      text={"50-50 Tickets"}
+      onClick={() => handleModalShow('lottery')}
+      disabled={!event.lotteryiframe}
+    />
+  </Col>
     </Row>
 
   </div>
@@ -213,6 +227,11 @@ const EventModals = ({ event, modalType, handleModalClose }) => (
         <ModalComponent open={modalType === 'performance'} handleClose={handleModalClose} iframeSrc={event.performanceIframe} />
       </Suspense>
     )}
+    {event.lotteryiframe && (
+  <Suspense fallback={<div>Loading...</div>}>
+    <ModalComponent open={modalType === 'lottery'} handleClose={handleModalClose} iframeSrc={event.lotteryiframe} />
+  </Suspense>
+)}
 
     <EventSponsorImages />
 
