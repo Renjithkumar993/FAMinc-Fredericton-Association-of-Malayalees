@@ -1,6 +1,6 @@
 import React, { useState, useEffect, Suspense, lazy } from 'react';
 import { Container, Row, Col, Button, Alert } from 'react-bootstrap';
-import { useParams } from 'react-router-dom';
+import { useParams, useNavigate  } from 'react-router-dom';
 import moment from 'moment-timezone';
 import HelmetWrapper from '../HelmetWrapper';
 import Breadcrumbs from '../Breadcrumbs';
@@ -8,15 +8,16 @@ import { FaMapMarkerAlt, FaCalendarAlt, FaClock, FaTicketAlt, FaInfoCircle, FaCl
 import { LazyLoadImage } from 'react-lazy-load-image-component';
 import 'react-lazy-load-image-component/src/effects/blur.css';
 import './EventDetail.css';
-import { useNavigate } from 'react-router-dom';
+
 import EventSponsorImages from '../EventSponsorImages';
-import { Box } from '@mui/material';
+
 
 
 
 
 const ModalComponent = lazy(() => import('../ModalComponent'));
 const Loading = lazy(() => import('../Loading'));
+
 
 const images = {
   pookalamMavaliImage: `${process.env.PUBLIC_URL}/images/events/chenda1.gif`,
@@ -43,7 +44,7 @@ const fetchEventData = async (eventId, setEvent, setLoading, setError) => {
 
 const EventDetail = () => {
   const { eventId } = useParams();
-  const navigate = useNavigate(); // Initialize navigate
+  const navigate = useNavigate();
   const [event, setEvent] = useState(null);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
@@ -111,7 +112,8 @@ const EventDetail = () => {
      
           <h2 className="event-title">{event.title}</h2>
         </div>
-        <Row className="align-items-center mb-4">
+        <Row className="align-items-center text-center mb-4">
+          
           <Col xs={12} md={6} className="event-image-container text-center mb-4 mb-md-0">
          
             <LazyLoadImage
@@ -122,16 +124,38 @@ const EventDetail = () => {
             />
        
           </Col>
+          
           <Col xs={12} md={6}>
             <div className="event-info">
               <EventDetails event={event} eventDate={eventDate} googleMapsLink={googleMapsLink} />
               <EventActions event={event} handleModalShow={handleModalShow} />
             </div>
           </Col>
+
+  
+  
+  
+  
+          <Col xs={12} sm={6}>
+  <ActionButton
+  
+    text={"Get 50/50 Tickets"}
+    onClick={() => navigate('/famonamgame')}
+    disabled={!event.performanceIframe}
+  />
+</Col>
+  
+  
+
+
+
+
+
+          
         </Row>
       </Container>
       <EventModals event={event} modalType={modalType} handleModalClose={handleModalClose} />
-      {/* <EventSponsors /> */}
+      
     </>
   );
 };
@@ -162,11 +186,25 @@ const EventDetails = ({ event, eventDate, googleMapsLink }) => (
           <h5 className="mt-3">
             <FaClipboardList className="event-icon" /> Activities
           </h5>
+  
+  
+  
+  
+  
+  
+  
           <ul className="mt-2" style={{ listStyleType: 'disc', paddingLeft: '20px' }}>
             {event.extraDetails.activities.map((activity, index) => (
               <li key={index} style={{ marginBottom: '5px' }}>{activity}</li>
             ))}
           </ul>
+
+
+
+
+
+
+
           <p className="mt-2">{event.extraDetails.about}</p>
         </>
       )}
@@ -174,7 +212,7 @@ const EventDetails = ({ event, eventDate, googleMapsLink }) => (
   </div>
 );
 
-const EventActions = ({ event, handleModalShow }) => (
+const EventActions = ({ event, handleModalShow}) => (
   <div className="event-actions text-center">
     <Row className="justify-content-center">
       <Col xs={12} sm={12} className="mb-2">
@@ -192,7 +230,10 @@ const EventActions = ({ event, handleModalShow }) => (
           disabled={!event.performanceIframe}
         />
       </Col>
+
     </Row>
+
+    
 
   </div>
 );
