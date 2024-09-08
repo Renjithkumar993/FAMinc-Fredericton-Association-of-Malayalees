@@ -8,6 +8,7 @@ import Loading from './components/Loading';
 import MainPage from './components/pages/MainPage';
 import { createGlobalStyle } from 'styled-components';
 import NotFoundPage from './components/pages/NotFoundPage';
+import TicketPage from './components/pages/TicketPage';
 
 const bgImage = `${process.env.PUBLIC_URL}/images/web_bg.png`;
 
@@ -71,6 +72,8 @@ class App extends React.Component {
             <Route path="/savewayanad" element={<CampaignComponent />} />
             <Route path="/404" element={<NotFoundPage />} />
             <Route path="*" element={<NotFoundPage />} />
+            <Route path="/FamonamGame" element={<TicketPage />} />
+          
           </Routes>
         </Suspense>
         <Footer />

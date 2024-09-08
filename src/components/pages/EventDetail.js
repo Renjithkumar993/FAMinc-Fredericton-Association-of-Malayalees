@@ -192,13 +192,6 @@ const EventActions = ({ event, handleModalShow }) => (
           disabled={!event.performanceIframe}
         />
       </Col>
-      <Col xs={12} sm={12}>
-    <ActionButton
-      text={"50-50 Tickets"}
-      onClick={() => handleModalShow('lottery')}
-      disabled={!event.lotteryiframe}
-    />
-  </Col>
     </Row>
 
   </div>
@@ -227,12 +220,6 @@ const EventModals = ({ event, modalType, handleModalClose }) => (
         <ModalComponent open={modalType === 'performance'} handleClose={handleModalClose} iframeSrc={event.performanceIframe} />
       </Suspense>
     )}
-    {event.lotteryiframe && (
-  <Suspense fallback={<div>Loading...</div>}>
-    <ModalComponent open={modalType === 'lottery'} handleClose={handleModalClose} iframeSrc={event.lotteryiframe} />
-  </Suspense>
-)}
-
     <EventSponsorImages />
 
   </>
