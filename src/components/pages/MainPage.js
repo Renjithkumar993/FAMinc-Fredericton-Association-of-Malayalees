@@ -6,7 +6,6 @@ import BacklinkInfo from '../BacklinkInfo';
 import CampaignTeaserComponent from '../pages/CampaignTeaserComponent';
 import HelmetWrapper from '../HelmetWrapper';
 import AnnualSponsors from '../AnnualSponsors';
-import EventSponsorImages from '../EventSponsorImages';
 
 const LandingPage = React.lazy(() => import('../Landingpage'));
 const AboutUs = React.lazy(() => import('../AboutUs'));
@@ -15,6 +14,7 @@ const FacebookPageEmbed = React.lazy(() => import('../FacebookPageEmbed'));
 const Steps = React.lazy(() => import('../Steps'));
 const JoinComponent = React.lazy(() => import('../JoinComponent'));
 const UpcomingEvent = React.lazy(() => import('../UpcomingEvent'));
+
 
 
 
@@ -61,20 +61,18 @@ const MainPage = React.memo(() => {
           <Suspense fallback={<Loading loading={true} />}>
   
         <Element name="home" id="home"><LandingPage /></Element>
-        <CampaignTeaserComponent />
+        {/* <CampaignTeaserComponent /> */}
         <Element name="about" id="about"><AboutUs /></Element>
         <Steps />
         <Element name="mission" id="mission"><MissionVision /></Element>
     
-       
-     
-  
+ 
         <AnnualSponsors />
         <FacebookPageEmbed />
         <JoinComponent />
         <UpcomingEvent />
 
-        <EventSponsorImages />
+        {/* <EventSponsorImages /> */}
         <BacklinkInfo />
          
         <FullWidthImage />

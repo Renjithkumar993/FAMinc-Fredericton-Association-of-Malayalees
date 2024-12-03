@@ -8,9 +8,9 @@
     "time": "11:00 AM - 8:00 PM",
     "location": "715 rue, Priestman St, Fredericton, NB E3B 5W7, Canada",
     "isOpen": true,
-    "formIframe": "https://www.zeffy.com/ticketing/63199576-2e24-49e2-9fe1-499849096770",
-    "performanceIframe": "https://forms.office.com/r/3wuM4y4ayE",
-    "upcomingEvent": true,
+    "formIframe": "",
+    "performanceIframe": "",
+    "upcomingEvent": false,
     "extraDetails": {
       "about": "Onam is more than just a festival; it's a celebration of Kerala's culture, a time for family reunions, and an opportunity to connect with our roots. It embodies the spirit of unity in diversity, bringing together people of all faiths in joyous harmony.",
       "activities": [

@@ -45,8 +45,6 @@ const UpcomingEvent = () => {
   }
 
   const UpcomingBanner = `${process.env.PUBLIC_URL}/images/events/upcoming-banner.png`;
-  const Maveli= `${process.env.PUBLIC_URL}/images/events/Maveli_resize.gif`;
-  const pookalam = `${process.env.PUBLIC_URL}/images/events/pookalam.gif`;
 
   if (updatedEvents.length === 0) {
     return (
@@ -119,9 +117,9 @@ const UpcomingEvent = () => {
           <Grid item xs={12} md={8} style={{ display: 'flex', justifyContent: 'center' }}>
             <img src={image} alt={title} className="event-image" style={{ width: '100%' }} />
           </Grid>
-          <Grid item xs={12} md={6} style={{ display: 'flex', justifyContent: 'center' }}>
-            <img src={pookalam} alt={title} className="event-image" style={{ width: '100%' }} />
-          </Grid>
+          
+          
+          
         </Grid>
         <Grid item xs={12}>
           <Typography variant="h4" component="h1" className="text-center bold-text">

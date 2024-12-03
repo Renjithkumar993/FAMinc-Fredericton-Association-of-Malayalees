@@ -5,32 +5,72 @@ import ArrowBackIosNewIcon from '@mui/icons-material/ArrowBackIosNew';
 import ArrowForwardIosIcon from '@mui/icons-material/ArrowForwardIos';
 
 const EventSponsorImages = () => {
+    const [sponsorImages, setSponsorImages] = useState([]);
     const [currentIndex, setCurrentIndex] = useState(0);
     const theme = useTheme();
 
-    const images = [
-        `${process.env.PUBLIC_URL}/images/events/event-sponsors/image1.png`,
-        `${process.env.PUBLIC_URL}/images/events/event-sponsors/image2.png`,
-        `${process.env.PUBLIC_URL}/images/events/event-sponsors/image3.png`,
-        `${process.env.PUBLIC_URL}/images/events/event-sponsors/image4.png`,
-        `${process.env.PUBLIC_URL}/images/events/event-sponsors/image5.png`,
-    ];
-
     useEffect(() => {
-        const interval = setInterval(() => {
-            handleNext();
-        }, 4000); // Auto-slide every 4 seconds
+        // Fetch images from a JSON file
+        const fetchSponsorImages = async () => {
+            try {
+                const response = await fetch(`${process.env.PUBLIC_URL}/images/events/event-sponsors.json`); // Adjust path as needed
+                if (!response.ok) throw new Error('Failed to fetch sponsor images');
+                const data = await response.json();
+                setSponsorImages(data.images || []); // Assuming JSON contains an `images` array
+            } catch (error) {
+                console.error(error);
+            }
+        };
 
-        return () => clearInterval(interval);
+        fetchSponsorImages();
     }, []);
 
+    useEffect(() => {
+        if (sponsorImages.length > 0) {
+            const interval = setInterval(() => {
+                handleNext();
+            }, 4000); // Auto-slide every 4 seconds
+
+            return () => clearInterval(interval);
+        }
+    }, [sponsorImages]);
+
     const handlePrev = () => {
-        setCurrentIndex((prevIndex) => (prevIndex === 0 ? images.length - 1 : prevIndex - 1));
+        setCurrentIndex((prevIndex) =>
+            prevIndex === 0 ? sponsorImages.length - 1 : prevIndex - 1
+        );
     };
 
     const handleNext = () => {
-        setCurrentIndex((prevIndex) => (prevIndex === images.length - 1 ? 0 : prevIndex + 1));
+        setCurrentIndex((prevIndex) =>
+            prevIndex === sponsorImages.length - 1 ? 0 : prevIndex + 1
+        );
     };
+
+    if (sponsorImages.length === 0) {
+        // Render empty or placeholder content if no images
+        return (
+            <Box
+                sx={{
+                    width: '100%',
+                    maxWidth: '1200px',
+                    margin: 'auto',
+                    padding: theme.spacing(4),
+                    textAlign: 'center',
+                }}
+            >
+                <Typography
+                    variant="h6"
+                    sx={{
+                        color: theme.palette.text.secondary,
+                        fontStyle: 'italic',
+                    }}
+                >
+                    sponsors Details will be available here
+                </Typography>
+            </Box>
+        );
+    }
 
     return (
         <Box
@@ -44,7 +84,6 @@ const EventSponsorImages = () => {
                 display: 'flex',
                 flexDirection: 'column',
                 alignItems: 'center',
-               
             }}
         >
             <Typography
@@ -69,7 +108,6 @@ const EventSponsorImages = () => {
                     display: 'flex',
                     alignItems: 'center',
                     justifyContent: 'center',
-                    
                 }}
             >
                 <Box
@@ -81,7 +119,7 @@ const EventSponsorImages = () => {
                         height: '100%',
                     }}
                 >
-                    {images.map((src, index) => (
+                    {sponsorImages.map((src, index) => (
                         <Box
                             key={index}
                             component="img"
@@ -91,52 +129,36 @@ const EventSponsorImages = () => {
                                 minWidth: '100%',
                                 height: '100%',
                                 objectFit: 'contain',
-          
-          
-                             
-                             
-                             
-                             
                             }}
                         />
                     ))}
                 </Box>
-
-               
-               
-               
-               
-               
-               
-               
-               
-               
-               
-               
-               
-               
-               
-               
-               
-               
-
-               
-               
-               
-               
-               
-               
-               
-               
-               
-               
-               
-         
-               
-               
-               
-               
-               
+                <IconButton
+                    onClick={handlePrev}
+                    sx={{
+                        position: 'absolute',
+                        left: theme.spacing(2),
+                        top: '50%',
+                        transform: 'translateY(-50%)',
+                        zIndex: 1,
+                        color: theme.palette.text.primary,
+                    }}
+                >
+                    <ArrowBackIosNewIcon />
+                </IconButton>
+                <IconButton
+                    onClick={handleNext}
+                    sx={{
+                        position: 'absolute',
+                        right: theme.spacing(2),
+                        top: '50%',
+                        transform: 'translateY(-50%)',
+                        zIndex: 1,
+                        color: theme.palette.text.primary,
+                    }}
+                >
+                    <ArrowForwardIosIcon />
+                </IconButton>
             </Box>
 
             <Box
@@ -146,14 +168,15 @@ const EventSponsorImages = () => {
                     marginTop: theme.spacing(2),
                 }}
             >
-                {images.map((_, index) => (
+                {sponsorImages.map((_, index) => (
                     <Box
                         key={index}
                         sx={{
                             width: 10,
                             height: 10,
                             borderRadius: '50%',
-                            backgroundColor: index === currentIndex ? '#ff6341' : theme.palette.grey[500],
+                            backgroundColor:
+                                index === currentIndex ? '#ff6341' : theme.palette.grey[500],
                             margin: theme.spacing(0.5),
                             transition: 'background-color 0.3s ease',
                             cursor: 'pointer',

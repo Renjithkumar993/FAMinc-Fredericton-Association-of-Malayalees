@@ -55,7 +55,7 @@ const UsefulLinks = () => {
 />
     
     <Container sx={{ marginTop: '80px', minHeight: '100vh', display: 'flex', flexDirection: 'column', justifyContent: 'center' }}>
-      <Typography variant="h4" gutterBottom align="center" sx={{ marginBottom: 4, color: '#ff6341' }}>
+      <Typography variant="h4" gutterBottom align="center" sx={{ marginBottom: 4, color: '#ff6341' ,fontSize: { xs: '1.7rem', sm: '2rem', md: '2.5rem' }}}>
         Useful Links for Newcomers to Fredericton, New Brunswick
       </Typography>
       <Grid container spacing={4}>

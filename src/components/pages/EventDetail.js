@@ -20,10 +20,7 @@ const Loading = lazy(() => import('../Loading'));
 
 
 const images = {
-  pookalamMavaliImage: `${process.env.PUBLIC_URL}/images/events/chenda1.gif`,
   mx8cxla2Image: `${process.env.PUBLIC_URL}/images/events/mx8cxla2.png`,
-  pookalamGif: `${process.env.PUBLIC_URL}/images/events/pookalam.gif`,
-  maveliResizeGif: `${process.env.PUBLIC_URL}/images/events/Maveli_resize.gif`,
 };
 
 const fetchEventData = async (eventId, setEvent, setLoading, setError) => {
@@ -104,11 +101,6 @@ const EventDetail = () => {
             </Alert>
           )}
           
-          <img
-            src={images.maveliResizeGif}
-            alt="Maveli"
-            className="img-fluid"
-          />
      
           <h2 className="event-title">{event.title}</h2>
         </div>
@@ -136,15 +128,15 @@ const EventDetail = () => {
   
   
   
-          <Col xs={12} sm={6} className='text-center'>
-  <ActionButton
-  
-    text={"Get 50/50 Tickets"}
-    onClick={() => navigate('/famonamgame')}
-    disabled={!event.performanceIframe}
-  />
-</Col>
-  
+
+
+
+
+
+
+
+
+
   
 
 
