@@ -10,6 +10,13 @@ const iconMap = {
   FaWhatsapp: <FaWhatsapp />
 };
 
+// Custom premium gradients matching the original card colors
+const gradientMap = {
+  '#d9534f': 'linear-gradient(135deg, #e64a19 0%, #c5390c 100%)', // Saffron/Tomato Red
+  '#3b5998': 'linear-gradient(135deg, #4267B2 0%, #2e4a82 100%)', // Facebook Blue
+  '#25D366': 'linear-gradient(135deg, #25D366 0%, #1c9c4b 100%)'  // WhatsApp Green
+};
+
 const WhatWeDo = () => {
   const [cardData, setCardData] = useState([]);
 
@@ -31,8 +38,9 @@ const WhatWeDo = () => {
   };
 
   const getCardVariants = (index) => {
-    const rotation = index === 0 ? -1.2 : index === 1 ? 1.5 : -1;
-    const xOffset = index === 0 ? -6 : index === 1 ? 6 : -4;
+    // Staggered rotation tilt, exactly matching the look and feel of the original design
+    const rotation = index === 0 ? -2 : index === 1 ? 2 : -1.5;
+    const xOffset = index === 0 ? -4 : index === 1 ? 4 : -2;
 
     return {
       hidden: { 
@@ -53,7 +61,7 @@ const WhatWeDo = () => {
         } 
       },
       hover: {
-        scale: 1.03,
+        scale: 1.04,
         rotate: 0,
         x: 0,
         y: -6,
@@ -80,13 +88,15 @@ const WhatWeDo = () => {
         sx={{
           display: 'flex',
           flexDirection: 'column',
+          gap: 2.5,
           width: '100%',
-          pt: 1.5,
-          pb: 3
+          pt: 1,
+          pb: 2
         }}
       >
         {cardData.map((card, index) => {
           const cardVar = getCardVariants(index);
+          const cardGradient = gradientMap[card.color] || card.color;
 
           return (
             <Box
@@ -96,46 +106,29 @@ const WhatWeDo = () => {
               whileHover="hover"
               sx={{
                 position: 'relative',
-                marginTop: index === 0 ? 0 : '-18px', // Creates the overlapping vertical card stack effect
-                zIndex: index + 1,
               }}
             >
               <Card
                 sx={{
                   display: 'flex',
                   alignItems: 'center',
-                  justifyContent: 'space-between',
-                  padding: { xs: 2.25, sm: 2.75 },
-                  backgroundColor: 'rgba(255, 255, 255, 0.9)',
-                  backdropFilter: 'blur(12px)',
+                  padding: { xs: 2.5, sm: 3.25 },
+                  background: cardGradient,
                   borderRadius: 4,
-                  boxShadow: '0 8px 30px rgba(0, 0, 0, 0.03)',
-                  border: '1px solid rgba(0, 0, 0, 0.05)',
+                  boxShadow: '0 10px 25px rgba(0, 0, 0, 0.12)',
+                  border: '1px solid rgba(255, 255, 255, 0.15)',
                   overflow: 'hidden',
-                  transition: 'border 0.3s ease, box-shadow 0.3s ease',
-                  '&::before': {
-                    content: '""',
-                    position: 'absolute',
-                    left: 0,
-                    top: 0,
-                    bottom: 0,
-                    width: '6px',
-                    backgroundColor: card.color,
-                    borderRadius: '4px 0 0 4px',
-                    transition: 'width 0.3s ease',
-                  },
+                  color: '#ffffff',
+                  transition: 'box-shadow 0.3s ease',
                   '&:hover': {
-                    borderColor: `${card.color}50`,
-                    boxShadow: `0 16px 35px ${card.color}18`,
-                    '&::before': {
-                      width: '8px',
-                    },
+                    boxShadow: `0 20px 40px ${card.color}40`,
                     '& .brand-icon-wrapper': {
-                      transform: 'scale(1.08)',
-                      backgroundColor: `${card.color}15`,
+                      transform: 'scale(1.1) rotate(5deg)',
+                      opacity: 0.95
                     },
                     '& .action-button': {
-                      boxShadow: `0 4px 14px ${card.color}35`,
+                      transform: 'translateY(-2px)',
+                      boxShadow: '0 6px 15px rgba(0, 0, 0, 0.2)',
                       '& .btn-arrow': {
                         transform: 'translateX(3px)',
                       }
@@ -143,87 +136,91 @@ const WhatWeDo = () => {
                   }
                 }}
               >
-                <Box sx={{ display: 'flex', alignItems: 'center', gap: 2.5, flex: 1, pl: 0.5 }}>
-                  <Box 
-                    className="brand-icon-wrapper"
-                    sx={{ 
-                      color: card.color, 
-                      fontSize: '1.8rem', 
-                      display: 'flex', 
-                      alignItems: 'center',
-                      justifyContent: 'center',
-                      backgroundColor: `${card.color}08`,
-                      p: 1.5,
-                      borderRadius: 3.5,
-                      transition: 'all 0.3s ease',
-                    }}
-                  >
-                    {iconMap[card.icon]}
-                  </Box>
-                  <Box sx={{ textAlign: 'left' }}>
+                <Box sx={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', width: '100%' }}>
+                  {/* Left Content Area */}
+                  <Box sx={{ flex: 1, textAlign: 'left', pr: 2 }}>
                     <Typography 
-                      variant="h6" 
+                      variant="h5" 
                       sx={{ 
-                        fontWeight: 850, 
-                        mb: 0.5,
-                        fontSize: '1.15rem',
+                        fontWeight: 800, 
+                        mb: 0.75,
+                        fontSize: '1.25rem',
                         letterSpacing: '-0.015em',
-                        color: 'text.primary',
+                        color: '#ffffff',
+                        fontFamily: "'Outfit', 'Baloo 2', sans-serif"
                       }}
                     >
                       {card.title}
                     </Typography>
+                    
                     <Typography 
                       variant="body2" 
-                      color="text.secondary" 
                       sx={{ 
-                        fontSize: '0.875rem', 
+                        fontSize: '0.9rem', 
                         lineHeight: 1.5,
-                        maxWidth: { xs: '200px', sm: '280px', md: '300px' }
+                        color: 'rgba(255, 255, 255, 0.9)',
+                        maxWidth: '290px',
+                        mb: 2
                       }}
                     >
                       {card.description}
                     </Typography>
+
+                    {card.link && (
+                      <Button
+                        variant="contained"
+                        href={card.link}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="action-button"
+                        sx={{
+                          backgroundColor: '#ffffff',
+                          color: card.color,
+                          fontWeight: 800,
+                          fontSize: '0.85rem',
+                          borderRadius: '25px',
+                          px: 3.5,
+                          py: 1,
+                          boxShadow: 'none',
+                          textTransform: 'none',
+                          display: 'inline-flex',
+                          alignItems: 'center',
+                          gap: 0.5,
+                          transition: 'all 0.3s ease',
+                          '&:hover': {
+                            backgroundColor: '#ffffff',
+                            color: card.color
+                          }
+                        }}
+                      >
+                        <span>Open Link</span>
+                        <ChevronRightIcon 
+                          className="btn-arrow"
+                          sx={{ 
+                            fontSize: '1.15rem', 
+                            transition: 'transform 0.2s ease' 
+                          }} 
+                        />
+                      </Button>
+                    )}
                   </Box>
-                </Box>
-                
-                {card.link && (
-                  <Button
-                    variant="contained"
-                    href={card.link}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="action-button"
-                    sx={{
-                      backgroundColor: card.color,
-                      color: '#ffffff',
-                      fontWeight: 800,
-                      fontSize: '0.8rem',
-                      borderRadius: '25px',
-                      px: 3,
-                      py: 1,
-                      boxShadow: 'none',
-                      textTransform: 'none',
-                      display: 'flex',
+
+                  {/* Right Icon Area */}
+                  <Box 
+                    className="brand-icon-wrapper"
+                    sx={{ 
+                      color: '#ffffff', 
+                      fontSize: '4.5rem', 
+                      display: 'flex', 
                       alignItems: 'center',
-                      gap: 0.5,
+                      opacity: 0.85,
                       transition: 'all 0.3s ease',
-                      '&:hover': {
-                        backgroundColor: card.color,
-                        filter: 'brightness(0.95)',
-                      }
+                      flexShrink: 0
                     }}
                   >
-                    <span>Open</span>
-                    <ChevronRightIcon 
-                      className="btn-arrow"
-                      sx={{ 
-                        fontSize: '1.1rem', 
-                        transition: 'transform 0.2s ease' 
-                      }} 
-                    />
-                  </Button>
-                )}
+                    {iconMap[card.icon]}
+                  </Box>
+                </Box>
               </Card>
             </Box>
           );
