@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useState, useCallback } from 'react';
 import { Box, Typography, IconButton } from '@mui/material';
 import { useTheme } from '@mui/material/styles';
 import ArrowBackIosNewIcon from '@mui/icons-material/ArrowBackIosNew';
@@ -25,6 +25,18 @@ const EventSponsorImages = () => {
         fetchSponsorImages();
     }, []);
 
+    const handlePrev = useCallback(() => {
+        setCurrentIndex((prevIndex) =>
+            prevIndex === 0 ? sponsorImages.length - 1 : prevIndex - 1
+        );
+    }, [sponsorImages.length]);
+
+    const handleNext = useCallback(() => {
+        setCurrentIndex((prevIndex) =>
+            prevIndex === sponsorImages.length - 1 ? 0 : prevIndex + 1
+        );
+    }, [sponsorImages.length]);
+
     useEffect(() => {
         if (sponsorImages.length > 0) {
             const interval = setInterval(() => {
@@ -33,19 +45,7 @@ const EventSponsorImages = () => {
 
             return () => clearInterval(interval);
         }
-    }, [sponsorImages]);
-
-    const handlePrev = () => {
-        setCurrentIndex((prevIndex) =>
-            prevIndex === 0 ? sponsorImages.length - 1 : prevIndex - 1
-        );
-    };
-
-    const handleNext = () => {
-        setCurrentIndex((prevIndex) =>
-            prevIndex === sponsorImages.length - 1 ? 0 : prevIndex + 1
-        );
-    };
+    }, [sponsorImages, handleNext]);
 
     if (sponsorImages.length === 0) {
         // Render empty or placeholder content if no images

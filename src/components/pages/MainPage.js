@@ -3,17 +3,16 @@ import { Element } from 'react-scroll';
 import Loading from '../Loading';
 import FullWidthImage from '../FullWidthImage';
 import BacklinkInfo from '../BacklinkInfo';
-import CampaignTeaserComponent from '../pages/CampaignTeaserComponent';
 import HelmetWrapper from '../HelmetWrapper';
-import AnnualSponsors from '../AnnualSponsors';
 
-const LandingPage = React.lazy(() => import('../Landingpage'));
+const LandingPage = React.lazy(() => import('../LandingPage'));
 const AboutUs = React.lazy(() => import('../AboutUs'));
 const MissionVision = React.lazy(() => import('../MissionVision'));
 const FacebookPageEmbed = React.lazy(() => import('../FacebookPageEmbed'));
 const Steps = React.lazy(() => import('../Steps'));
 const JoinComponent = React.lazy(() => import('../JoinComponent'));
 const UpcomingEvent = React.lazy(() => import('../UpcomingEvent'));
+const CommunityImpact = React.lazy(() => import('../CommunityImpact'));
 
 
 
@@ -26,13 +25,14 @@ const MainPage = React.memo(() => {
   useEffect(() => {
     const preloadComponents = async () => {
       const components = [
-        import('../Landingpage'),
+        import('../LandingPage'),
         import('../AboutUs'),
         import('../MissionVision'),
         import('../FacebookPageEmbed'),
         import('../Steps'),
         import('../JoinComponent'),
-        import('../UpcomingEvent')
+        import('../UpcomingEvent'),
+        import('../CommunityImpact')
       ];
 
       try {
@@ -67,7 +67,7 @@ const MainPage = React.memo(() => {
         <Element name="mission" id="mission"><MissionVision /></Element>
     
  
-        <AnnualSponsors />
+        <CommunityImpact />
         <FacebookPageEmbed />
         <JoinComponent />
         <UpcomingEvent />

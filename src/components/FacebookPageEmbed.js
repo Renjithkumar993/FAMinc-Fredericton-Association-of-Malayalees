@@ -2,8 +2,6 @@ import React, { useEffect, useState, useCallback, useRef } from 'react';
 import { Box, Typography, CircularProgress, Button, Container, IconButton, Grid } from '@mui/material';
 import { FaFacebookF } from 'react-icons/fa';
 
-const bgImage = `${process.env.PUBLIC_URL}/images/web_bg.png`;
-
 const FacebookPageEmbed = () => {
   const [loading, setLoading] = useState(true);
   const [retryCount, setRetryCount] = useState(0);
@@ -66,13 +64,14 @@ const FacebookPageEmbed = () => {
       { threshold: 0.1 }
     );
 
-    if (iframeRef.current) {
-      observer.observe(iframeRef.current);
+    const currentIframe = iframeRef.current;
+    if (currentIframe) {
+      observer.observe(currentIframe);
     }
 
     return () => {
-      if (iframeRef.current) {
-        observer.unobserve(iframeRef.current);
+      if (currentIframe) {
+        observer.unobserve(currentIframe);
       }
     };
   }, [loadFacebookSDK, retryCount, maxRetries]);

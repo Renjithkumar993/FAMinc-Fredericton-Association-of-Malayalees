@@ -3,23 +3,22 @@ import { Grid, Box, Button, Container, Typography } from '@mui/material';
 import { useInView } from 'react-intersection-observer';
 import { Typewriter } from 'react-simple-typewriter';
 import { motion } from 'framer-motion';
-import './MissionVision.css';
 import { useNavigate } from 'react-router-dom';
-import Loading from './Loading'; // Ensure this is the correct path to your Loading component
-
-const TEXTS = ['MISSION', 'VISION'];
+import Loading from './Loading';
+import './MissionVision.css';
 
 const MissionVision = () => {
   const { ref: textRef, inView: textInView } = useInView({
     triggerOnce: false,
+    threshold: 0.1,
   });
 
   const { ref: imageRef, inView: imageInView } = useInView({
     triggerOnce: false,
+    threshold: 0.1,
   });
 
   const navigate = useNavigate();
-  const [index, setIndex] = useState(0);
   const [missionVisionData, setMissionVisionData] = useState(null);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
@@ -44,85 +43,163 @@ const MissionVision = () => {
     fetchMissionVisionData();
   }, []);
 
-  useEffect(() => {
-    const intervalId = setInterval(() => {
-      setIndex(index => (index + 1) % TEXTS.length);
-    }, 5000); // Change the word every 5 seconds
-    return () => clearInterval(intervalId);
-  }, []);
-
   if (loading) {
     return <Loading />;
   }
 
   if (error) {
-    return <div>{error}</div>;
+    return (
+      <Container sx={{ py: 6, textAlign: 'center' }}>
+        <Typography color="error">{error}</Typography>
+      </Container>
+    );
   }
 
   const missionImage = `${process.env.PUBLIC_URL}/images/heroimages/MissionVission-Hero.png`;
 
   return (
-    <div className="mv-section" id="mission">
+    <Box 
+      component="section" 
+      id="mission" 
+      sx={{ 
+        py: { xs: 6, md: 10 },
+        background: 'transparent',
+        overflow: 'hidden'
+      }}
+    >
       <Container>
-        <Grid container alignItems="center">
-          <Grid item md={6} ref={textRef}>
-            <motion.div
-              className="mv-text-container"
-              initial={{ x: 100, opacity: 0 }}
-              animate={{ x: textInView ? 0 : 100, opacity: textInView ? 1 : 0 }}
-              transition={{ duration: 0.5 }}
+        <Grid container alignItems="center" spacing={6}>
+          {/* Left Column: Text Content */}
+          <Grid item xs={12} md={6} ref={textRef}>
+            <Box
+              component={motion.div}
+              initial={{ x: 50, opacity: 0 }}
+              animate={{ x: textInView ? 0 : 50, opacity: textInView ? 1 : 0 }}
+              transition={{ duration: 0.6 }}
+              sx={{ textAlign: 'left' }}
             >
-              <Typography variant="h4"style={{ fontWeight: 'bold' }}>
-                OUR <span className="highlight-text" >
+              <Typography 
+                variant="h4" 
+                sx={{ 
+                  fontWeight: 800, 
+                  mb: 1.5,
+                  fontSize: { xs: '1.8rem', md: '2.4rem' },
+                  letterSpacing: '-0.01em',
+                  display: 'flex',
+                  alignItems: 'center',
+                  gap: 1
+                }}
+              >
+                OUR <Box component="span" sx={{ color: 'primary.main' }}>
                   <Typewriter
                     words={['MISSION']}
                     loop={true}
                     cursor
-                    cursorStyle="_"
+                    cursorStyle="|"
                     typeSpeed={50}
                     deleteSpeed={50}
                     delaySpeed={2000}
                   />
-                </span>
+                </Box>
               </Typography>
-              <Typography>{missionVisionData.mission}</Typography>
-              <Typography variant="h4" style={{ fontWeight: 'bold' }}>
-                OUR <span className="highlight-text">
+              <Typography 
+                variant="body1" 
+                color="text.secondary" 
+                sx={{ 
+                  lineHeight: 1.7, 
+                  mb: 4,
+                  fontSize: '1.05rem' 
+                }}
+              >
+                {missionVisionData.mission}
+              </Typography>
+
+              <Typography 
+                variant="h4" 
+                sx={{ 
+                  fontWeight: 800, 
+                  mb: 1.5,
+                  fontSize: { xs: '1.8rem', md: '2.4rem' },
+                  letterSpacing: '-0.01em',
+                  display: 'flex',
+                  alignItems: 'center',
+                  gap: 1
+                }}
+              >
+                OUR <Box component="span" sx={{ color: 'primary.main' }}>
                   <Typewriter
                     words={['VISION']}
                     loop={true}
                     cursor
-                    cursorStyle="_"
-                    typeSpeed={100}
+                    cursorStyle="|"
+                    typeSpeed={60}
                     deleteSpeed={50}
-                    delaySpeed={1000}
+                    delaySpeed={2500}
                   />
-                </span>
+                </Box>
               </Typography>
-              <Typography>{missionVisionData.vision}</Typography>
+              <Typography 
+                variant="body1" 
+                color="text.secondary" 
+                sx={{ 
+                  lineHeight: 1.7, 
+                  mb: 4,
+                  fontSize: '1.05rem' 
+                }}
+              >
+                {missionVisionData.vision}
+              </Typography>
+
               <Button
                 variant="contained"
                 color="primary"
-                className="mv-read-more-btn mb-4"
                 onClick={() => navigate('/aboutus')}
+                sx={{
+                  px: 4.5,
+                  py: 1.5,
+                  fontWeight: 700,
+                  fontSize: '0.95rem',
+                  boxShadow: '0 4px 14px rgba(230, 74, 25, 0.25)',
+                }}
               >
                 Read More
               </Button>
-            </motion.div>
+            </Box>
           </Grid>
-          <Grid item md={6} ref={imageRef}>
-            <motion.div
-              className="mv-image-container"
-              initial={{ x: -100, opacity: 0 }}
-              animate={{ x: imageInView ? 0 : -100, opacity: imageInView ? 1 : 0 }}
-              transition={{ duration: 0.5 }}
+
+          {/* Right Column: Kathakali Dancer Illustration */}
+          <Grid item xs={12} md={6} ref={imageRef}>
+            <Box
+              component={motion.div}
+              initial={{ x: -50, opacity: 0 }}
+              animate={{ x: imageInView ? 0 : -50, opacity: imageInView ? 1 : 0 }}
+              transition={{ duration: 0.6 }}
+              sx={{
+                display: 'flex',
+                justifyContent: 'center',
+                alignItems: 'center',
+                width: '100%',
+              }}
             >
-              <img src={missionImage} alt="Mission and Vision" className="mv-mission-image img-fluid" />
-            </motion.div>
+              <Box
+                component="img"
+                src={missionImage}
+                alt="Mission and Vision Kathakali"
+                sx={{
+                  width: '100%',
+                  maxWidth: '500px',
+                  height: 'auto',
+                  display: 'block',
+                  // Blend the white background of the image with the textured page background
+                  mixBlendMode: 'multiply',
+                  filter: 'contrast(1.02)'
+                }}
+              />
+            </Box>
           </Grid>
         </Grid>
       </Container>
-    </div>
+    </Box>
   );
 };
 

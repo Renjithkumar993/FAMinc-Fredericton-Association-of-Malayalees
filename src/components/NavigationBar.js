@@ -29,7 +29,6 @@ const pages = [
 ];
 
 const logo = `${process.env.PUBLIC_URL}/images/logofam.avif`;
-const bgImage = `${process.env.PUBLIC_URL}/images/web_bg.png`;
 
 const NavigationBar = () => {
   const [menuOpen, setMenuOpen] = useState(false);
@@ -76,16 +75,57 @@ const NavigationBar = () => {
 
   return (
     <>
-      <AppBar position="fixed" className={`navbar ${scrolled ? 'navbar-scrolled' : ''}`} elevation={0} style={{
-        backgroundImage: scrolled ? `url(${bgImage})` : 'none',
-      }}>
-        <Container maxWidth="lg">
-          <Toolbar disableGutters>
+      <AppBar 
+        position="fixed" 
+        elevation={0}
+        sx={{
+          backgroundColor: scrolled ? 'rgba(255, 255, 255, 0.85)' : 'transparent',
+          backdropFilter: scrolled ? 'blur(20px)' : 'none',
+          transition: 'all 0.4s cubic-bezier(0.4, 0, 0.2, 1)',
+          color: scrolled ? '#1a1a1a' : 'white',
+          width: { xs: '100%', md: scrolled ? 'calc(100% - 48px)' : '100%' },
+          maxWidth: { xs: '100%', md: scrolled ? '1200px' : '100%' },
+          left: '50%',
+          transform: 'translateX(-50%)',
+          top: { xs: 0, md: scrolled ? 16 : 0 },
+          borderRadius: { xs: 0, md: scrolled ? '40px' : 0 },
+          boxShadow: scrolled ? '0 12px 40px rgba(0, 0, 0, 0.08)' : 'none',
+          border: scrolled ? '1px solid rgba(230, 74, 25, 0.1)' : 'none',
+        }}
+      >
+        <Container maxWidth="lg" sx={{ px: { xs: 2, md: scrolled ? 4 : 2 }, transition: 'padding 0.4s ease' }}>
+          <Toolbar disableGutters sx={{ height: scrolled ? 64 : 80, transition: 'height 0.4s ease' }}>
             <Box sx={{ display: 'flex', alignItems: 'center', flexGrow: 1 }}>
               <RouterLink to="/" style={{ display: 'flex', alignItems: 'center', textDecoration: 'none', color: 'inherit' }} onClick={handleHomeClick}>
-                <img src={logo} alt="FAM Logo" className={`logo ${scrolled ? 'logo-scrolled' : ''}`} loading="lazy" />
-                <Typography variant="h6" component="div" sx={{ display: { xs: 'none', md: 'block' } }}>
-                  
+                <Box
+                  component="img"
+                  src={logo}
+                  alt="FAM Logo"
+                  className={`logo ${scrolled ? 'logo-scrolled' : ''}`}
+                  loading="lazy"
+                  sx={{
+                    height: scrolled ? 46 : 56,
+                    width: scrolled ? 46 : 56,
+                    borderRadius: '50%',
+                    border: scrolled ? '2px solid rgba(230, 74, 25, 0.2)' : '2px solid rgba(255, 255, 255, 0.8)',
+                    boxShadow: scrolled ? '0 4px 12px rgba(0, 0, 0, 0.08)' : 'none',
+                    marginRight: 2,
+                    transition: 'all 0.4s ease',
+                    objectFit: 'cover',
+                  }}
+                />
+                <Typography 
+                  variant="h6" 
+                  component="div" 
+                  sx={{ 
+                    display: { xs: 'none', md: 'block' },
+                    fontWeight: 800,
+                    color: scrolled ? '#e64a19' : 'white',
+                    letterSpacing: '-0.02em',
+                    textShadow: scrolled ? 'none' : '0 2px 4px rgba(0,0,0,0.2)'
+                  }}
+                >
+                  FAM
                 </Typography>
               </RouterLink>
             </Box>
@@ -97,14 +137,15 @@ const NavigationBar = () => {
                   to={page.path}
                   color="inherit"
                   sx={{
-                    mx: 1.5,
-                    fontSize: '0.8rem',
-                    fontWeight: 'bold',
-                    color: scrolled ? 'black' : 'white',
+                    mx: { md: 0.75, lg: 1.5 },
+                    fontSize: '0.85rem',
+                    fontWeight: 700,
+                    color: scrolled ? '#333333' : 'white',
                     position: 'relative',
+                    textShadow: scrolled ? 'none' : '0 1px 2px rgba(0,0,0,0.3)',
                     '&:hover': {
                       backgroundColor: 'transparent',
-                      color: '#ff5722',
+                      color: '#e64a19',
                       '&::after': {
                         width: '100%',
                       },
@@ -113,14 +154,13 @@ const NavigationBar = () => {
                       content: '""',
                       position: 'absolute',
                       width: '0%',
-                      height: '2px',
+                      height: '3px',
                       bottom: '-5px',
                       left: '0',
-                      backgroundColor: '#ff5722',
+                      backgroundColor: '#e64a19',
                       transition: 'width 0.3s ease',
                     },
                   }}
-                  startIcon={<FontAwesomeIcon icon={page.icon} />}
                   onClick={page.path === '/' ? handleHomeClick : undefined}
                 >
                   {page.name}
@@ -130,16 +170,17 @@ const NavigationBar = () => {
                 component={RouterLink}
                 to="/joinus"
                 variant="contained"
+                color="primary"
                 sx={{
                   ml: 2,
-                  backgroundColor: '#ff5722',
                   borderRadius: "25px",
-                  color: 'white',
-                  fontSize: '0.9rem',
-                  transition: 'transform 0.3s ease',
+                  fontSize: '0.85rem',
+                  fontWeight: 700,
+                  boxShadow: '0 4px 14px rgba(230, 74, 25, 0.3)',
+                  transition: 'all 0.3s ease',
                   '&:hover': {
-                    backgroundColor: '#ff5722',
-                    transform: 'scale(1.1)',
+                    transform: 'translateY(-2px)',
+                    boxShadow: '0 6px 20px rgba(230, 74, 25, 0.4)',
                   },
                 }}
                 startIcon={<FontAwesomeIcon icon={faUsers} />}
@@ -152,20 +193,50 @@ const NavigationBar = () => {
               color="inherit"
               aria-label="menu"
               onClick={toggleMenu}
-              sx={{ ml: 2, display: { md: 'none' }, fontSize: '2rem', color: '#ff5722' }}
+              sx={{ ml: 2, display: { md: 'none' }, fontSize: '2rem', color: '#e64a19' }}
             >
               <FontAwesomeIcon icon={faBars} />
             </IconButton>
           </Toolbar>
         </Container>
-        <Drawer anchor="left" open={menuOpen} onClose={toggleMenu} sx={{ '& .MuiDrawer-paper': { backgroundColor: 'white', color: 'black' } }}>
-          <List>
+        <Drawer 
+          anchor="left" 
+          open={menuOpen} 
+          onClose={toggleMenu} 
+          sx={{ 
+            '& .MuiDrawer-paper': { 
+              backgroundColor: '#ffffff', 
+              color: '#1a1a1a', 
+              width: 250,
+              boxShadow: '4px 0 24px rgba(0,0,0,0.1)'
+            } 
+          }}
+        >
+          <List sx={{ pt: 3 }}>
+            <Box sx={{ textAlign: 'center', mb: 3 }}>
+              <img src={logo} alt="FAM Logo" style={{ width: 80, height: 80, borderRadius: '50%', border: '2px solid #e64a19' }} />
+              <Typography variant="h6" sx={{ fontWeight: 'bold', mt: 1, color: '#e64a19' }}>FAM NB</Typography>
+            </Box>
             {pages.map((page) => (
-              <ListItem button key={page.name} component={RouterLink} to={page.path} onClick={toggleMenu} sx={{ '&:hover': { backgroundColor: '#ff5722', color: 'white' } }}>
-                <ListItemIcon sx={{ color: 'inherit' }}>
+              <ListItem 
+                button 
+                key={page.name} 
+                component={RouterLink} 
+                to={page.path} 
+                onClick={toggleMenu} 
+                sx={{ 
+                  py: 1.5,
+                  '&:hover': { 
+                    backgroundColor: '#e64a19', 
+                    color: 'white',
+                    '& .MuiListItemIcon-root': { color: 'white' }
+                  } 
+                }}
+              >
+                <ListItemIcon sx={{ color: '#e64a19', transition: 'color 0.2s' }}>
                   <FontAwesomeIcon icon={page.icon} />
                 </ListItemIcon>
-                <ListItemText primary={page.name} />
+                <ListItemText primary={page.name} primaryTypographyProps={{ fontWeight: 'bold' }} />
               </ListItem>
             ))}
           </List>
@@ -173,20 +244,20 @@ const NavigationBar = () => {
       </AppBar>
       {showBackToTop && (
         <Fab
-          color="secondary"
+          color="primary"
           size="medium"
           aria-label="scroll back to top"
           onClick={scrollToTop}
           sx={{
             position: 'fixed',
-            bottom: 16,
-            right: 16,
+            bottom: 24,
+            right: 24,
             zIndex: 1000,
-            backgroundColor: '#ff5722',
             color: 'white',
+            boxShadow: '0 4px 16px rgba(230, 74, 25, 0.4)',
+            transition: 'all 0.3s ease',
             '&:hover': {
-              backgroundColor: '#ff5722',
-              opacity: 0.8,
+              transform: 'scale(1.1)',
             },
           }}
         >

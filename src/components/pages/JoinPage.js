@@ -16,6 +16,7 @@ import {
 import CloseIcon from '@mui/icons-material/Close';
 import CheckCircleIcon from '@mui/icons-material/CheckCircle';
 import Breadcrumbs from '../Breadcrumbs';
+import HelmetWrapper from '../HelmetWrapper';
 
 const iframeSrc =
   'https://www.zeffy.com/ticketing/fredericton-association-of-malayaleesfam-memberships--2025';
@@ -77,24 +78,29 @@ export default function JoinPage() {
   const handleCloseModal = () => setModalOpen(false);
 
   return (
-    <Container
-      maxWidth="lg"
-      sx={{
-        minHeight: '100vh',
-        display: 'flex',
-        flexDirection: 'column',
-        py: { xs: 3, md: 6 },
-        px: { xs: 2, md: 4 },
-      }}
-    >
-      <Breadcrumbs />
+    <>
+      <HelmetWrapper 
+        pageTitle="Join Our Community" 
+        description="Join the Fredericton Association of Malayalees (FAM) in New Brunswick. Apply for your yearly membership and be a part of the vibrant cultural community."
+      />
+      <Container
+        maxWidth="lg"
+        sx={{
+          minHeight: '100vh',
+          display: 'flex',
+          flexDirection: 'column',
+          py: { xs: 3, md: 6 },
+          px: { xs: 2, md: 4 },
+        }}
+      >
+        <Breadcrumbs />
 
       <Typography
         variant="h3"
         gutterBottom
         sx={{
           fontWeight: 'bold',
-          color: '#ff6341',
+          color: 'primary.main',
           fontSize: { xs: '2rem', sm: '2.5rem', md: '3rem' },
           textAlign: 'center',
           mb: 3,
@@ -137,7 +143,7 @@ export default function JoinPage() {
         ].map((benefit, i) => (
           <ListItem key={i} sx={{ px: 2 }}>
             <ListItemIcon>
-              <CheckCircleIcon sx={{ color: '#ff6341' }} />
+              <CheckCircleIcon sx={{ color: 'primary.main' }} />
             </ListItemIcon>
             <ListItemText
               primary={benefit}
@@ -154,7 +160,7 @@ export default function JoinPage() {
         variant="h5"
         sx={{
           fontWeight: 'bold',
-          color: '#ff6341',
+          color: 'primary.main',
           maxWidth: 900,
           mx: 'auto',
           mb: 2,
@@ -169,13 +175,13 @@ export default function JoinPage() {
         sx={{
           maxWidth: 900,
           mx: 'auto',
-          border: '1px solid #ccc',
-          borderRadius: 2,
+          border: '1px solid rgba(0, 0, 0, 0.12)',
+          borderRadius: 3,
           p: 3,
           mb: 3,
           maxHeight: { xs: 220, sm: 300 },
           overflowY: 'auto',
-          bgcolor: '#f9f9f9',
+          bgcolor: 'rgba(0, 0, 0, 0.02)',
           fontSize: { xs: '0.9rem', sm: '1rem' },
           lineHeight: 1.6,
         }}
@@ -224,13 +230,13 @@ export default function JoinPage() {
           variant="contained"
           disabled={!agreed}
           sx={{
-            backgroundColor: '#ff6341',
+            backgroundColor: 'primary.main',
             paddingX: 4,
             paddingY: 1.5,
             fontSize: { xs: '1rem', sm: '1.1rem' },
             borderRadius: '50px',
             boxShadow: 4,
-            '&:hover': { backgroundColor: '#e65100' },
+            '&:hover': { backgroundColor: 'primary.dark' },
           }}
           onClick={handleOpenModal}
         >
@@ -241,5 +247,6 @@ export default function JoinPage() {
       {/* Fullscreen modal with iframe */}
       <IframeModal open={modalOpen} onClose={handleCloseModal} src={iframeSrc} />
     </Container>
+    </>
   );
 }
